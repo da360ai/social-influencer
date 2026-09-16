@@ -35,6 +35,11 @@ import { Label } from "@/components/ui/label";
 import academyLogo from "@/assets/digital-academy-360-logo.png.asset.json";
 import mentorPortrait from "@/assets/sathiyaseelan-s.webp.asset.json";
 import creatorWorkshopHero from "@/assets/creator-workshop-hero-phone-camera.jpg";
+import curriculumPosition from "@/assets/curriculum-position.jpg";
+import curriculumContent from "@/assets/curriculum-content.jpg";
+import curriculumInfluence from "@/assets/curriculum-influence.jpg";
+import curriculumIncome from "@/assets/curriculum-income.jpg";
+import curriculumBrand from "@/assets/curriculum-brand.jpg";
 
 type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -57,6 +62,14 @@ const modules = [
   ["How to Get Your First Brand Deal", "Find the right brands, create a sharp pitch, and follow up professionally."],
   ["How to Price Your Content", "Use deliverables, usage rights, effort, and value to quote with confidence."],
   ["Your First ₹10K Creator Roadmap", "Leave with a focused 30-day action plan built around your strengths."],
+];
+
+const curriculumImages = [
+  curriculumPosition,
+  curriculumContent,
+  curriculumInfluence,
+  curriculumIncome,
+  curriculumBrand,
 ];
 
 const outcomes = [
@@ -347,16 +360,38 @@ export function WorkshopPage() {
       </section>
 
       <section className="bg-surface py-20 sm:py-24">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <SectionHeading eyebrow="10-module curriculum" title="A complete creator income playbook" copy="Tap any module to see what you’ll unpack in the room." />
-           <Accordion type="multiple" className="overflow-hidden rounded-xl border border-border bg-card px-5 shadow-sm sm:px-7">
-            {modules.map(([title, text], index) => (
-              <AccordionItem key={title} value={`module-${index}`} className="border-border">
-                <AccordionTrigger className="gap-4 py-5 text-left font-display text-base font-bold hover:no-underline sm:text-lg"><span className="mr-auto"><span className="mr-3 text-xs text-primary">{String(index + 1).padStart(2, "0")}</span>{title}</span></AccordionTrigger>
-                <AccordionContent className="max-w-2xl pl-8 leading-6 text-muted-foreground">{text}</AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-10 grid gap-4 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <span className="text-xs font-extrabold uppercase text-primary">10-module curriculum</span>
+              <h2 className="mt-3 max-w-xl font-display text-3xl font-extrabold text-foreground sm:text-4xl">A complete creator income playbook</h2>
+            </div>
+            <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">Tap any module to see what you’ll unpack in the room.</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {modules.map(([title, text], index) => {
+              const image = curriculumImages[index % curriculumImages.length];
+              const imageFirst = index % 2 === 0;
+              return (
+                <article key={title} className="grid min-h-52 grid-cols-2 overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow">
+                  <img
+                    src={image}
+                    alt=""
+                    width={1024}
+                    height={768}
+                    loading="lazy"
+                    className={`h-full min-h-52 w-full object-cover ${imageFirst ? "order-1" : "order-2"}`}
+                  />
+                  <div className={`flex min-w-0 flex-col p-4 sm:p-5 ${imageFirst ? "order-2" : "order-1"}`}>
+                    <span className="text-xs font-extrabold text-primary">{String(index + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-3 font-display text-base font-extrabold leading-tight text-foreground sm:text-lg">{title}</h3>
+                    <p className="mt-3 text-xs leading-5 text-muted-foreground">{text}</p>
+                    <span className="mt-auto inline-flex items-center gap-1 pt-4 text-[10px] font-extrabold uppercase text-primary">What you’ll learn <ArrowRight className="size-3" /></span>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
