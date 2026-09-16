@@ -33,7 +33,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import academyLogo from "@/assets/digital-academy-360-logo.png.asset.json";
-import mentorPortrait from "@/assets/sathiyaseelan-s.webp.asset.json";
+import mentorPortrait from "@/assets/mentor-portrait.jpg.asset.json";
 import creatorWorkshopHero from "@/assets/creator-workshop-hero-phone-camera.jpg";
 import curriculumPosition from "@/assets/curriculum-position.jpg";
 import curriculumContent from "@/assets/curriculum-content.jpg";
@@ -424,7 +424,7 @@ export function WorkshopPage() {
               <img
                 src={mentorPortrait.url}
                 alt="Sathiyaseelan S, Performance Marketer and workshop mentor"
-                 className="aspect-[583/471] h-full w-full rounded-lg object-cover"
+                className="aspect-[3/4] h-full w-full rounded-lg object-cover object-top"
                 loading="lazy"
               />
             </div>
