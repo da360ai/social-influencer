@@ -143,7 +143,7 @@ function scrollToForm() {
 }
 
 function MetaPill({ children }: { children: React.ReactNode }) {
-  return <span className="inline-flex items-center gap-1.5 rounded-full border border-foreground bg-card px-3 py-2 text-[10px] font-extrabold uppercase text-foreground">{children}</span>;
+  return <span className="inline-flex items-center gap-1.5 rounded-md border border-primary/15 bg-secondary px-3 py-2 text-[11px] font-bold uppercase text-foreground">{children}</span>;
 }
 
 function Price() {
@@ -274,10 +274,10 @@ function BookingForm() {
 
 function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
   return (
-    <div className="mb-10 grid max-w-4xl gap-4 border-t border-foreground pt-5 sm:grid-cols-[11rem_1fr] sm:gap-8">
+    <div className="mx-auto mb-10 max-w-2xl text-center">
       <span className="text-xs font-extrabold uppercase text-primary">{eyebrow}</span>
-      <div><h2 className="font-display text-3xl font-extrabold leading-tight text-foreground sm:text-5xl">{title}</h2>
-      {copy && <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">{copy}</p>}</div>
+      <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">{title}</h2>
+      {copy && <p className="mt-3 text-sm leading-6 text-muted-foreground sm:text-base">{copy}</p>}
     </div>
   );
 }
@@ -288,9 +288,8 @@ export function WorkshopPage() {
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(venueAddress)}`;
 
   return (
-    <main id="top" className="min-h-screen overflow-x-hidden bg-ink pb-20 text-foreground sm:px-4 sm:pt-4 sm:pb-4">
-      <div className="editorial-shell mx-auto max-w-[1500px] overflow-hidden bg-background sm:rounded-t-2xl">
-       <header className="sticky top-0 z-40 border-b border-foreground bg-card/95 backdrop-blur-xl">
+    <main id="top" className="min-h-screen overflow-x-hidden bg-background pb-20 text-foreground sm:pb-0">
+       <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6">
           <Brand />
           <div className="hidden items-center gap-2 text-xs text-muted-foreground md:flex"><Clock3 className="size-4 text-primary" /> Workshop starts in <Countdown /></div>
@@ -298,18 +297,18 @@ export function WorkshopPage() {
         </div>
       </header>
 
-       <section className="relative border-b border-foreground bg-card">
-          <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:py-10">
-            <div className="grid gap-8 lg:grid-cols-12">
-            <div className="max-w-3xl lg:col-span-7">
-              <div className="inline-flex rounded-full border border-foreground bg-secondary px-4 py-2 text-xs font-extrabold uppercase text-foreground">Offline seminar · Bangalore</div>
-              <h1 className="mt-6 max-w-4xl text-center font-display text-5xl font-extrabold leading-[0.96] text-foreground sm:text-7xl lg:text-left lg:text-[5.8rem]">
-                Turn your influence into <span className="text-primary">income.</span>
+       <section className="relative grid-bg border-b border-border">
+        <div className="hero-glow pointer-events-none absolute inset-0" />
+         <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 lg:min-h-[min(calc(100vh-4rem),860px)] lg:grid-cols-12 lg:py-14">
+           <div className="max-w-3xl lg:col-span-5">
+             <div className="inline-flex rounded-md bg-secondary px-4 py-2 text-xs font-extrabold uppercase text-primary">Offline creator economy workshop</div>
+             <h1 className="mt-7 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[4.4rem]">
+               Get ready to <span className="marker-underline text-primary">Earn From Your Influence.</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
               Understand exactly how creators turn attention into income and build your first monetisation roadmap. <strong className="text-foreground">Real strategies. Real examples. Real opportunities.</strong>
             </p>
-             <div className="mt-7 flex flex-wrap gap-2">
+            <div className="mt-7 flex flex-wrap gap-2">
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 3 hours</MetaPill>
               <MetaPill><CalendarDays className="size-3.5 text-highlight" /> Upcoming Saturday</MetaPill>
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 10AM to 1PM</MetaPill>
@@ -319,18 +318,14 @@ export function WorkshopPage() {
               <Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-6 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Claim your spot <ArrowRight /></Button>
               <Price />
             </div>
-             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
+            <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
+             <a href="#journey" className="mt-10 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
-            <figure className="grid min-h-80 grid-cols-5 grid-rows-2 gap-2 lg:col-span-5 lg:min-h-[470px]">
-              <div className="relative col-span-3 row-span-2 overflow-hidden rounded-lg bg-coral"><img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center mix-blend-multiply" /></div>
-              <div className="col-span-2 overflow-hidden rounded-lg bg-sky"><img src={mentorPortrait.url} alt="Workshop mentor Sathiyaseelan S" className="h-full w-full object-cover object-top mix-blend-multiply" /></div>
-              <div className="dot-field col-span-2 flex items-end rounded-lg bg-mint p-5"><p className="font-display text-xl font-extrabold leading-tight">Real skills.<br />Real strategy.<br />Real income.</p></div>
+           <figure className="relative hidden self-stretch lg:col-span-3 lg:block">
+             <div className="absolute -left-4 top-10 z-10 max-w-36 rotate-[-4deg] font-display text-lg font-bold leading-tight text-foreground">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
+             <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full min-h-[520px] w-full rounded-[45%_45%_12%_12%] object-cover object-center shadow-glow" />
            </figure>
-            </div>
-            <div className="mt-8 grid gap-8 border-t border-foreground pt-8 lg:grid-cols-12">
-              <div className="lg:col-span-7 lg:pr-10"><p className="max-w-xl font-display text-2xl font-bold leading-snug">A focused Saturday session for creators who want a practical route from attention to earnings.</p><a href="#journey" className="mt-8 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">Explore the workshop <ArrowDown className="size-4" /></a></div>
-              <div className="lg:col-span-5"><BookingForm /></div>
-            </div>
+          <BookingForm />
         </div>
       </section>
 
@@ -339,17 +334,17 @@ export function WorkshopPage() {
           <SectionHeading eyebrow="The creator journey" title="Four moves. One earning engine." copy="The workshop connects every stage, so your content becomes more than a posting habit." />
            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {journey.map(({ label, text, icon: Icon }, index) => (
-               <article key={label} className={`relative rounded-lg border border-foreground p-6 transition-transform hover:-translate-y-1 ${index === 0 ? "bg-coral text-primary-foreground" : index === 1 ? "bg-sun" : index === 2 ? "bg-sky" : "bg-mint"} ${index % 2 ? "lg:mt-8" : ""}`}>
-                 <div className="flex items-center justify-between"><span className="text-xs font-extrabold">0{index + 1}</span><Icon className="size-6" /></div>
+               <article key={label} className={`relative rounded-lg border border-border bg-card p-6 shadow-sm transition-transform hover:-translate-y-1 ${index % 2 ? "lg:mt-8" : ""}`}>
+                <div className="flex items-center justify-between"><span className="text-xs font-extrabold text-primary">0{index + 1}</span><Icon className="size-6 text-highlight" /></div>
                 <h3 className="mt-10 font-display text-2xl font-extrabold uppercase">{label}</h3>
-                 <p className="mt-3 text-sm leading-6 text-foreground/75">{text}</p>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-       <section className="bg-card py-20 sm:py-24">
+      <section className="bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <SectionHeading eyebrow="10-module curriculum" title="A complete creator income playbook" copy="Tap any module to see what you’ll unpack in the room." />
            <Accordion type="multiple" className="overflow-hidden rounded-xl border border-border bg-card px-5 shadow-sm sm:px-7">
@@ -363,7 +358,7 @@ export function WorkshopPage() {
         </div>
       </section>
 
-       <section className="border-y border-foreground bg-mint py-20 sm:py-24">
+      <section className="border-y border-border py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="Workshop outcomes" title="Walk out with clarity across five pillars" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -372,7 +367,7 @@ export function WorkshopPage() {
         </div>
       </section>
 
-       <section className="bg-sun py-20 sm:py-24">
+      <section className="bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading eyebrow="Included with your seat" title="Two bonuses built for immediate action" />
           <div className="grid gap-5 md:grid-cols-2">
@@ -384,7 +379,7 @@ export function WorkshopPage() {
         </div>
       </section>
 
-       <section className="border-y border-foreground bg-card py-20 sm:py-24">
+      <section className="border-y border-border py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <h2 className="font-display text-4xl font-extrabold text-foreground sm:text-5xl">Meet your Mentor</h2>
           <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
@@ -430,7 +425,7 @@ export function WorkshopPage() {
         </div>
       </section>
 
-       <section className="bg-sky py-20 sm:py-24">
+      <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeading eyebrow="Is this for you?" title="Come ready to build—not just watch" />
           <div className="grid overflow-hidden rounded-lg border border-border md:grid-cols-2">
@@ -440,14 +435,14 @@ export function WorkshopPage() {
         </div>
       </section>
 
-       <section className="border-y border-foreground bg-card py-20 sm:py-24">
+      <section className="border-y border-border bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="Tangible takeaways" title="Six assets you’ll leave with" />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{takeaways.map((item, index) => <div key={item} className="flex min-h-28 items-start gap-4 rounded-md border border-border bg-card p-5"><span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-xs font-extrabold text-primary">{index + 1}</span><p className="pt-1 font-display font-bold">{item}</p></div>)}</div>
         </div>
       </section>
 
-       <section className="bg-mint py-20 sm:py-24">
+      <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mx-auto mb-10 max-w-3xl text-center">
             <p className="text-xs font-extrabold uppercase text-primary">Where we meet</p>
@@ -481,18 +476,18 @@ export function WorkshopPage() {
         </div>
       </section>
 
-       <section className="border-y border-foreground bg-card py-20 sm:py-24">
+      <section className="border-y border-border bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6"><SectionHeading eyebrow="Frequently asked" title="Everything you need to know" /><Accordion type="single" collapsible className="rounded-lg border border-border bg-card px-5 sm:px-7">{faqs.map(([question, answer], index) => <AccordionItem key={question} value={`faq-${index}`} className="border-border"><AccordionTrigger className="text-left font-display text-base font-bold hover:no-underline">{question}</AccordionTrigger><AccordionContent className="leading-6 text-muted-foreground">{answer}</AccordionContent></AccordionItem>)}</Accordion></div>
       </section>
 
-       <section className="relative grid-bg bg-sun py-20 text-center sm:py-28">
+      <section className="relative grid-bg py-20 text-center sm:py-28">
+        <div className="hero-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">Only 5 seats left</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">Spend one Saturday building the clarity, offers, and roadmap to begin.</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Book your seat for ₹79 <ArrowRight /></Button><Price /></div></div>
       </section>
 
-        <footer className="border-t border-foreground bg-card py-8"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:flex-row sm:px-6 sm:text-left"><Brand /><p className="text-xs text-muted-foreground">© 2026 Digital Academy 360. Learn · Create · Grow.</p></div></footer>
+       <footer className="border-t border-border bg-card py-8"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:flex-row sm:px-6 sm:text-left"><Brand /><p className="text-xs text-muted-foreground">© 2026 Digital Academy 360. Learn · Create · Grow.</p></div></footer>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-foreground bg-background/95 px-4 py-3 backdrop-blur-xl sm:hidden"><div><p className="text-[10px] font-bold uppercase text-muted-foreground">3-hour workshop</p><Price /></div><Button onClick={scrollToForm} className="bg-primary font-extrabold text-primary-foreground hover:bg-primary/90">Book now <ArrowRight /></Button></div>
-      </div>
+      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl sm:hidden"><div><p className="text-[10px] font-bold uppercase text-muted-foreground">3-hour workshop</p><Price /></div><Button onClick={scrollToForm} className="bg-primary font-extrabold text-primary-foreground hover:bg-primary/90">Book now <ArrowRight /></Button></div>
     </main>
   );
 }
