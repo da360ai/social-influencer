@@ -181,6 +181,13 @@
     radial-gradient(ellipse at 8% 92%, color-mix(in oklab, var(--accent) 40%, transparent), transparent 28%);
 }
 
+@utility testimonial-glow {
+  background:
+    radial-gradient(ellipse at 50% 0%, color-mix(in oklab, var(--accent) 50%, transparent), transparent 55%),
+    radial-gradient(ellipse at 12% 100%, color-mix(in oklab, var(--secondary) 90%, transparent), transparent 50%),
+    radial-gradient(ellipse at 88% 100%, color-mix(in oklab, var(--accent) 35%, transparent), transparent 50%);
+}
+
 @utility marker-underline {
   position: relative;
   display: inline-block;

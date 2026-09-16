@@ -40,6 +40,11 @@ import curriculumContent from "@/assets/curriculum-content.jpg";
 import curriculumInfluence from "@/assets/curriculum-influence.jpg";
 import curriculumIncome from "@/assets/curriculum-income.jpg";
 import curriculumBrand from "@/assets/curriculum-brand.jpg";
+import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
+import testimonial4 from "@/assets/testimonial-4.jpg";
+import testimonial5 from "@/assets/testimonial-5.jpg";
 
 type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -78,6 +83,44 @@ const outcomes = [
   { label: "Brand", text: "Position yourself so brands understand your value", icon: Sparkles },
   { label: "Business", text: "Build income streams beyond sponsorships", icon: BriefcaseBusiness },
   { label: "Roadmap", text: "Turn the next 30 days into clear action", icon: Target },
+];
+
+const testimonials = [
+  {
+    name: "Ananya Iyer",
+    handle: "@ananya.creates",
+    quote: "I walked in confused about monetisation and left with a 30-day plan. My first UGC deal came three weeks later.",
+    photo: testimonial1,
+    stats: ["18K followers", "First ₹10K"],
+  },
+  {
+    name: "Rohan Mehta",
+    handle: "@rohanframes",
+    quote: "The pricing framework alone was worth ten times the ticket. I stopped underquoting the same week.",
+    photo: testimonial2,
+    stats: ["9K followers", "2 brand deals"],
+  },
+  {
+    name: "Divya Rao",
+    handle: "@divyamakes",
+    quote: "Finally understood how to position my niche so brands actually reply to my pitches.",
+    photo: testimonial3,
+    stats: ["24K followers", "3 collabs"],
+  },
+  {
+    name: "Arjun Nair",
+    handle: "@arjunshoots",
+    quote: "Went from posting randomly to a clear content system. My reach doubled in a month.",
+    photo: testimonial4,
+    stats: ["12K followers", "₹8K per reel"],
+  },
+  {
+    name: "Sneha Kulkarni",
+    handle: "@sneha.bytes",
+    quote: "The brand pitch template got me a reply in two days. This workshop pays for itself fast.",
+    photo: testimonial5,
+    stats: ["31K followers", "5 deals"],
+  },
 ];
 
 const takeaways = [
@@ -400,6 +443,59 @@ export function WorkshopPage() {
           <SectionHeading eyebrow="Workshop outcomes" title="Walk out with clarity across five pillars" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
              {outcomes.map(({ label, text, icon: Icon }, index) => <article key={label} className={`rounded-lg border border-border bg-card p-5 shadow-sm ${index === 2 ? "lg:-translate-y-4" : ""}`}><span className="grid size-11 place-items-center rounded-full bg-secondary"><Icon className="size-5 text-primary" /></span><h3 className="mt-7 font-display text-lg font-extrabold">{label}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden border-b border-border py-20 sm:py-24">
+        <div className="testimonial-glow pointer-events-none absolute inset-0" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+          <SectionHeading
+            eyebrow="Wall of love"
+            title="Creators who made it count"
+            copy="Real people from past batches, building real income with what they learned in the room."
+          />
+          <div className="flex snap-x snap-mandatory items-end justify-center gap-0 overflow-x-auto px-6 pb-10 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {testimonials.map(({ name, handle, quote, photo, stats }, index) => {
+              const offsets = [-12, -6, 0, 6, 12];
+              const lifts = [16, 8, 0, 8, 16];
+              return (
+                <article
+                  key={handle}
+                  className={`w-48 shrink-0 snap-center overflow-hidden rounded-xl border border-border bg-card shadow-glow transition-transform duration-300 hover:z-20 hover:-translate-y-2 sm:w-56 lg:w-60 ${
+                    index > 0 ? "-ml-7 sm:-ml-9" : ""
+                  }`}
+                  style={{
+                    transform: `rotate(${offsets[index]}deg) translateY(${lifts[index]}px)`,
+                    zIndex: index === 2 ? 3 : index === 0 || index === 4 ? 1 : 2,
+                  }}
+                >
+                  <div className="flex items-center gap-2 px-3 py-2.5">
+                    <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary text-[10px] font-extrabold text-primary-foreground">{name.charAt(0)}</span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-xs font-extrabold text-foreground">{name}</span>
+                      <span className="block truncate text-[10px] font-bold text-primary">{handle}</span>
+                    </span>
+                  </div>
+                  <img
+                    src={photo}
+                    alt={`${name}, workshop attendee`}
+                    width={768}
+                    height={1024}
+                    loading="lazy"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                  <p className="px-3 pt-3 text-[11px] leading-5 text-muted-foreground">“{quote}”</p>
+                  <div className="mt-3 flex items-center justify-center gap-2 bg-primary px-3 py-2.5">
+                    {stats.map((stat) => (
+                      <span key={stat} className="rounded-full border border-primary-foreground/50 px-2.5 py-1 text-[9px] font-extrabold text-primary-foreground sm:text-[10px]">
+                        {stat}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
