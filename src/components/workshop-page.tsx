@@ -143,7 +143,7 @@ function scrollToForm() {
 }
 
 function MetaPill({ children }: { children: React.ReactNode }) {
-  return <span className="inline-flex items-center gap-1.5 rounded-md border border-primary/15 bg-secondary px-3 py-2 text-[11px] font-bold uppercase text-foreground">{children}</span>;
+  return <span className="inline-flex min-h-12 items-center gap-2 border-r border-border px-4 py-2 text-[10px] font-extrabold uppercase text-foreground first:pl-0 last:border-r-0 sm:text-[11px]">{children}</span>;
 }
 
 function Price() {
@@ -204,32 +204,32 @@ function BookingForm() {
 
   return (
     <>
-      <div id="register" className="scroll-mt-24 rounded-2xl border border-border bg-card p-5 shadow-glow sm:p-7 lg:col-span-4">
-        <div className="flex items-center justify-between gap-3 rounded-md bg-secondary px-4 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs">
+      <div id="register" className="scroll-mt-24 rounded-xl border border-border bg-card p-5 shadow-glow sm:p-6 lg:col-span-4">
+        <div className="flex items-center justify-between gap-3 rounded-md bg-secondary px-3 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs">
           <span className="inline-flex items-center gap-1.5"><MapPin className="size-3.5" /> In-person · JP Nagar, BLR</span>
           <span className="inline-flex shrink-0 items-center gap-1 text-highlight"><Zap className="size-3.5" /> 5 seats left</span>
         </div>
-        <div className="my-8 grid grid-cols-3 gap-2 text-[10px] font-bold text-muted-foreground sm:text-xs">
+        <div className="my-5 grid grid-cols-3 gap-2 text-[9px] font-bold text-muted-foreground sm:text-[10px]">
           {["Fill details", "Pay via Razorpay", "WhatsApp confirm"].map((step, index) => (
              <div key={step} className="flex items-center gap-2 border-t border-border pt-3"><span className="grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">{index + 1}</span><span className="line-clamp-2">{step}</span></div>
           ))}
         </div>
-        <form onSubmit={submit} noValidate className="space-y-5">
+        <form onSubmit={submit} noValidate className="space-y-3.5">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-xs font-extrabold uppercase">Full name</Label>
-            <Input id="name" autoComplete="name" placeholder="e.g. Priya Sharma" value={values.name} onChange={(e) => update("name", e.target.value)} aria-invalid={Boolean(errors.name)} className="h-14 bg-background px-4" />
+            <Input id="name" autoComplete="name" placeholder="e.g. Priya Sharma" value={values.name} onChange={(e) => update("name", e.target.value)} aria-invalid={Boolean(errors.name)} className="h-12 bg-background px-4" />
             {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
           </div>
           <div className="space-y-2">
             <Label htmlFor="email" className="text-xs font-extrabold uppercase">Email address</Label>
-            <Input id="email" type="email" autoComplete="email" placeholder="you@example.com" value={values.email} onChange={(e) => update("email", e.target.value)} aria-invalid={Boolean(errors.email)} className="h-14 bg-background px-4" />
+            <Input id="email" type="email" autoComplete="email" placeholder="you@example.com" value={values.email} onChange={(e) => update("email", e.target.value)} aria-invalid={Boolean(errors.email)} className="h-12 bg-background px-4" />
             {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
           </div>
           <div className="space-y-2">
             <Label htmlFor="phone" className="text-xs font-extrabold uppercase">WhatsApp number</Label>
             <div className="flex rounded-md border border-input bg-background focus-within:ring-1 focus-within:ring-ring">
-              <span className="grid h-14 place-items-center border-r border-border px-4 text-sm text-muted-foreground">+91</span>
-              <Input id="phone" inputMode="numeric" autoComplete="tel" maxLength={10} placeholder="98765 43210" value={values.phone} onChange={(e) => update("phone", e.target.value.replace(/\D/g, ""))} aria-invalid={Boolean(errors.phone)} className="h-14 border-0 px-4 shadow-none focus-visible:ring-0" />
+              <span className="grid h-12 place-items-center border-r border-border px-4 text-sm text-muted-foreground">+91</span>
+              <Input id="phone" inputMode="numeric" autoComplete="tel" maxLength={10} placeholder="98765 43210" value={values.phone} onChange={(e) => update("phone", e.target.value.replace(/\D/g, ""))} aria-invalid={Boolean(errors.phone)} className="h-12 border-0 px-4 shadow-none focus-visible:ring-0" />
             </div>
             {errors.phone && <p className="text-xs text-destructive">{errors.phone}</p>}
           </div>
@@ -240,7 +240,7 @@ function BookingForm() {
             <Price />
           </div>
         </form>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-border pt-5 text-[10px] text-muted-foreground sm:text-xs">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-border pt-4 text-[10px] text-muted-foreground sm:text-xs">
           <span className="rounded-full bg-foreground px-3 py-1 font-bold text-background">Razorpay</span>
           <span className="inline-flex items-center gap-1"><ShieldCheck className="size-3.5 text-success" /> 100% Secure</span>
           <span>UPI · VISA · Mastercard · RuPay</span>
@@ -297,33 +297,35 @@ export function WorkshopPage() {
         </div>
       </header>
 
-       <section className="relative grid-bg border-b border-border">
-        <div className="hero-glow pointer-events-none absolute inset-0" />
-         <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 py-10 sm:px-6 lg:min-h-[min(calc(100vh-4rem),860px)] lg:grid-cols-12 lg:py-14">
-           <div className="max-w-3xl lg:col-span-5">
-             <div className="inline-flex rounded-md bg-secondary px-4 py-2 text-xs font-extrabold uppercase text-primary">Offline creator economy workshop</div>
-             <h1 className="mt-7 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[4.4rem]">
+       <section className="relative overflow-hidden border-b border-border bg-background">
+         <div className="hero-glow pointer-events-none absolute inset-0" />
+          <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[min(calc(100vh-4rem),760px)] lg:grid-cols-12 lg:gap-0 lg:py-12">
+            <div className="relative z-10 max-w-3xl lg:col-span-5 lg:pr-5">
+              <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase text-primary"><MapPin className="size-3.5" /> Offline creator economy workshop</div>
+              <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[4.25rem]">
                Get ready to <span className="marker-underline text-primary">Earn From Your Influence.</span>
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+             <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground">
               Understand exactly how creators turn attention into income and build your first monetisation roadmap. <strong className="text-foreground">Real strategies. Real examples. Real opportunities.</strong>
             </p>
-            <div className="mt-7 flex flex-wrap gap-2">
+             <div className="mt-7 flex flex-wrap border-y border-border">
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 3 hours</MetaPill>
               <MetaPill><CalendarDays className="size-3.5 text-highlight" /> Upcoming Saturday</MetaPill>
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 10AM to 1PM</MetaPill>
               <MetaPill><MapPin className="size-3.5 text-highlight" /> Offline workshop</MetaPill>
             </div>
-            <div className="mt-7 flex flex-wrap items-center gap-5">
+             <div className="mt-6 flex flex-wrap items-center gap-5">
               <Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-6 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Claim your spot <ArrowRight /></Button>
               <Price />
             </div>
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
-             <a href="#journey" className="mt-10 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
+              <a href="#journey" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
-           <figure className="relative hidden self-stretch lg:col-span-3 lg:block">
-             <div className="absolute -left-4 top-10 z-10 max-w-36 rotate-[-4deg] font-display text-lg font-bold leading-tight text-foreground">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
-             <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full min-h-[520px] w-full rounded-[45%_45%_12%_12%] object-cover object-center shadow-glow" />
+            <figure className="relative hidden h-[540px] self-center lg:col-span-3 lg:block">
+              <div className="absolute -left-3 top-3 z-10 max-w-36 rotate-[-5deg] font-display text-base font-bold leading-tight text-foreground">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
+              <div className="absolute inset-x-1 bottom-0 top-12 overflow-hidden rounded-[48%_48%_3rem_3rem] bg-secondary">
+                <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
+              </div>
            </figure>
           <BookingForm />
         </div>
