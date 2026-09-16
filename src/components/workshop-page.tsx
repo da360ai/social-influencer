@@ -299,7 +299,7 @@ export function WorkshopPage() {
 
        <section className="relative overflow-hidden border-b border-border bg-background">
          <div className="hero-glow pointer-events-none absolute inset-0" />
-          <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[calc(100vh-4rem)] lg:grid-cols-12 lg:gap-0 lg:py-12">
+          <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[min(calc(100vh-4rem),760px)] lg:grid-cols-12 lg:gap-0 lg:py-12">
             <div className="relative z-10 max-w-3xl lg:col-span-5 lg:pr-5">
               <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase text-primary"><MapPin className="size-3.5" /> Offline creator economy workshop</div>
               <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[4.25rem]">
@@ -321,7 +321,7 @@ export function WorkshopPage() {
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
               <a href="#journey" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
-            <figure className="relative hidden h-[540px] self-end lg:col-span-3 lg:block">
+            <figure className="relative hidden h-[540px] self-center lg:col-span-3 lg:block">
               <div className="absolute -left-3 top-3 z-10 max-w-36 rotate-[-5deg] font-display text-base font-bold leading-tight text-foreground">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
               <div className="absolute inset-x-1 bottom-0 top-12 overflow-hidden rounded-[48%_48%_3rem_3rem] bg-secondary">
                 <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
