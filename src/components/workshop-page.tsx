@@ -359,7 +359,7 @@ export function WorkshopPage() {
          <div className="hero-glow pointer-events-none absolute inset-0" />
            <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[min(calc(100vh-4rem),720px)] lg:grid-cols-12 lg:gap-0 lg:py-10">
              <div className="relative z-10 max-w-3xl lg:col-span-5 lg:pr-3">
-               <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs"><MapPin className="size-3.5" /> Offline creator economy workshop</div>
+               <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs"><MapPin className="size-3.5" /> OFFLINE CREATOR  WORKSHOP</div>
                <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[3.8rem]">
                 Get ready to <span className="text-primary">Earn From Your Influence.</span>
             </h1>
