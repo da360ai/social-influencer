@@ -431,10 +431,10 @@ export function WorkshopPage() {
                     loading="lazy"
                     className={`h-full min-h-52 w-full object-cover md:min-h-64 ${imageFirst ? "order-1" : "order-2"}`}
                   />
-                  <div className={`flex min-w-0 flex-col p-4 sm:p-5 ${isLast ? "items-center justify-center text-center p-8 sm:p-12" : ""} ${imageFirst ? "order-2" : "order-1"}`}>
+                  <div className={`flex min-w-0 flex-col p-4 sm:p-5 ${isLast ? "items-center justify-center text-center p-6 sm:p-8" : ""} ${imageFirst ? "order-2" : "order-1"}`}>
                     <span className="text-xs font-extrabold text-primary sm:text-sm">{String(index + 1).padStart(2, "0")}</span>
-                    <h3 className={`mt-3 font-display font-extrabold leading-tight text-foreground ${isLast ? "text-2xl sm:text-3xl" : "text-base sm:text-lg"}`}>{title}</h3>
-                    <p className={`mt-3 leading-5 text-muted-foreground ${isLast ? "max-w-xl text-sm sm:text-base sm:leading-7" : "text-xs"}`}>{text}</p>
+                    <h3 className={`mt-3 font-display font-extrabold leading-tight text-foreground ${isLast ? "text-xl sm:text-2xl" : "text-base sm:text-lg"}`}>{title}</h3>
+                    <p className={`mt-3 leading-5 text-muted-foreground ${isLast ? "max-w-sm text-sm sm:text-base" : "text-xs"}`}>{text}</p>
                     <span className={`inline-flex items-center gap-1 pt-4 font-extrabold uppercase text-primary ${isLast ? "text-xs" : "mt-auto text-[10px]"}`}>What you’ll learn <ArrowRight className="size-3" /></span>
                   </div>
                 </article>
