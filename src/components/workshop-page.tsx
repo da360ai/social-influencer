@@ -379,10 +379,10 @@ export function WorkshopPage() {
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
               <a href="#journey" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
-             <figure className="relative hidden h-[560px] self-end lg:col-span-3 lg:block">
-               <div className="absolute -left-2 top-2 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
-               <div className="absolute inset-x-0 bottom-0 top-16 overflow-hidden rounded-t-full bg-secondary">
-                 <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
+            <figure className="relative hidden h-[560px] self-end lg:col-span-3 lg:block">
+              <div className="absolute inset-x-0 bottom-0 top-16 overflow-hidden rounded-t-full bg-secondary">
+                <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
+                <div className="absolute left-5 top-10 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground [text-shadow:0_1px_8px_rgba(255,255,255,0.55)]">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
               </div>
            </figure>
           <BookingForm />
