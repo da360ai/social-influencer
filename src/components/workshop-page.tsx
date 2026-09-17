@@ -43,6 +43,11 @@ import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
 import testimonial4 from "@/assets/testimonial-4.jpg";
 import testimonial5 from "@/assets/testimonial-5.jpg";
+import testimonialVideo1 from "@/assets/testimonial-video-1.mp4.asset.json";
+import testimonialVideo2 from "@/assets/testimonial-video-2.mp4.asset.json";
+import testimonialVideo3 from "@/assets/testimonial-video-3.mp4.asset.json";
+import testimonialVideo4 from "@/assets/testimonial-video-4.mp4.asset.json";
+import testimonialVideo5 from "@/assets/testimonial-video-5.mp4.asset.json";
 
 type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -89,6 +94,7 @@ const testimonials = [
     handle: "@ananya.creates",
     quote: "I walked in confused about monetisation and left with a 30-day plan. My first UGC deal came three weeks later.",
     photo: testimonial1,
+    video: testimonialVideo1.url,
     stats: ["18K followers", "First ₹10K"],
   },
   {
@@ -96,6 +102,7 @@ const testimonials = [
     handle: "@rohanframes",
     quote: "The pricing framework alone was worth ten times the ticket. I stopped underquoting the same week.",
     photo: testimonial2,
+    video: testimonialVideo2.url,
     stats: ["9K followers", "2 brand deals"],
   },
   {
@@ -103,6 +110,7 @@ const testimonials = [
     handle: "@divyamakes",
     quote: "Finally understood how to position my niche so brands actually reply to my pitches.",
     photo: testimonial3,
+    video: testimonialVideo3.url,
     stats: ["24K followers", "3 collabs"],
   },
   {
@@ -110,6 +118,7 @@ const testimonials = [
     handle: "@arjunshoots",
     quote: "Went from posting randomly to a clear content system. My reach doubled in a month.",
     photo: testimonial4,
+    video: testimonialVideo4.url,
     stats: ["12K followers", "₹8K per reel"],
   },
   {
@@ -117,6 +126,7 @@ const testimonials = [
     handle: "@sneha.bytes",
     quote: "The brand pitch template got me a reply in two days. This workshop pays for itself fast.",
     photo: testimonial5,
+    video: testimonialVideo5.url,
     stats: ["31K followers", "5 deals"],
   },
 ];
@@ -436,12 +446,12 @@ export function WorkshopPage() {
         <div className="testimonial-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
-            eyebrow="Wall of love"
+            eyebrow="Testimonials"
             title="Creators who made it count"
             copy="Real people from past batches, building real income with what they learned in the room."
           />
           <div className="flex snap-x snap-mandatory items-end justify-center gap-0 overflow-x-auto px-6 pb-10 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {testimonials.map(({ name, handle, quote, photo, stats }, index) => {
+            {testimonials.map(({ name, handle, quote, photo, video, stats }, index) => {
               const offsets = [-12, -6, 0, 6, 12];
               const lifts = [16, 8, 0, 8, 16];
               return (
@@ -462,12 +472,12 @@ export function WorkshopPage() {
                       <span className="block truncate text-[10px] font-bold text-primary">{handle}</span>
                     </span>
                   </div>
-                  <img
-                    src={photo}
-                    alt={`${name}, workshop attendee`}
-                    width={768}
-                    height={1024}
-                    loading="lazy"
+                  <video
+                    src={video}
+                    poster={photo}
+                    controls
+                    playsInline
+                    preload="none"
                     className="aspect-[3/4] w-full object-cover"
                   />
                   <p className="px-3 pt-3 text-[11px] leading-5 text-muted-foreground">“{quote}”</p>
