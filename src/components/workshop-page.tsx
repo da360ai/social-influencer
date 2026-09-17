@@ -363,8 +363,8 @@ export function WorkshopPage() {
             </p>
               <div className="mt-7 grid grid-cols-2 border-y border-border sm:grid-cols-4">
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 3 hours</MetaPill>
-              <MetaPill><CalendarDays className="size-3.5 text-highlight" /> Upcoming Saturday</MetaPill>
-              <MetaPill><Clock3 className="size-3.5 text-highlight" /> 10AM to 1PM</MetaPill>
+              <MetaPill><CalendarDays className="size-3.5 text-highlight" /> 26TH SEPTEMBER&nbsp;</MetaPill>
+              <MetaPill><Clock3 className="size-3.5 text-highlight" /> 11AM&nbsp; ONWARDS</MetaPill>
               <MetaPill><MapPin className="size-3.5 text-highlight" /> Offline workshop</MetaPill>
             </div>
              <div className="mt-6 flex flex-wrap items-center gap-5">
