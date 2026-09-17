@@ -452,7 +452,8 @@ export function WorkshopPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
             eyebrow="Testimonials"
-            title="\n"
+            title="
+"
             copy="Real people from past batches, building real income with what they learned in the room."
           />
           <div className="flex snap-x snap-mandatory items-end justify-center gap-0 overflow-x-auto px-6 pb-10 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
