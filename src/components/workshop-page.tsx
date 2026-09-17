@@ -132,7 +132,7 @@ const testimonials = [
     photo: testimonial5,
     video: testimonialVideo5.url,
     thumb: testimonialThumb5,
-    stats: ["\n", "\n"],
+    stats: ["", ""],
   },
 ];
 
