@@ -86,7 +86,6 @@ const outcomes = [
   { label: "Audience Creation", text: "Grow attention into a loyal community", icon: Users },
   { label: "Brand collaboration", text: "Position yourself so brands understand your value", icon: Sparkles },
   { label: "Building Business", text: "Build income streams beyond sponsorships", icon: BriefcaseBusiness },
-  { label: "Roadmap", text: "Turn the next 30 days into clear action", icon: Target },
 ];
 
 const testimonials = [
