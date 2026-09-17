@@ -335,6 +335,36 @@ function SectionHeading({ eyebrow, title, copy, eyebrowClassName = "text-xs", ti
   );
 }
 
+function HeaderCountdown() {
+  const target = useMemo(() => new Date("2026-09-26T11:00:00+05:30").getTime(), []);
+  const [now, setNow] = useState<number | null>(null);
+
+  useEffect(() => {
+    setNow(Date.now());
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const remaining = now === null ? null : Math.max(0, target - now);
+  const days = remaining === null ? "--" : Math.floor(remaining / 86_400_000);
+  const hours = remaining === null ? "--" : Math.floor((remaining % 86_400_000) / 3_600_000);
+  const minutes = remaining === null ? "--" : Math.floor((remaining % 3_600_000) / 60_000);
+  const seconds = remaining === null ? "--" : Math.floor((remaining % 60_000) / 1000);
+
+  return (
+    <div className="mx-auto flex items-center gap-2.5">
+      <Clock3 className="size-5 text-primary" />
+      <span className="text-sm text-muted-foreground">Workshop starts in</span>
+      <span className="font-display text-base font-extrabold tracking-wide text-foreground">
+        {days}<span className="mr-1 text-[13px]">d</span>
+        {hours}<span className="mr-1 text-[13px]">h</span>
+        {minutes}<span className="mr-1 text-[13px]">m</span>
+        <span>{seconds}</span><span className="text-[13px]">s</span>
+      </span>
+    </div>
+  );
+}
+
 export function WorkshopPage() {
   const venueAddress = "Digital Academy 360, 46/A, 1st Main Rd, opposite Mini Forest, Sarakki Industrial Layout, 3rd Phase, J. P. Nagar, Bangalore, Karnataka 560078";
   const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(venueAddress)}&output=embed`;
@@ -616,15 +646,10 @@ export function WorkshopPage() {
       </footer>
 
       <header className="sticky bottom-0 z-40 hidden border-t border-border bg-card/95 shadow-sm backdrop-blur-xl sm:block">
-        <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:gap-6 sm:px-6">
+        <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
           <Brand />
-          <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
-          <div className="ml-auto hidden items-center gap-6 md:flex">
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">26th September</span><span className="block text-muted-foreground">11AM Onwards</span></span></span>
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><MapPin className="size-5 text-primary" /><span><span className="block font-bold text-foreground">JP Nagar,</span><span className="block text-muted-foreground">Bangalore</span></span></span>
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><Users className="size-5 text-primary" /><span><span className="block font-bold text-foreground">Limited Seats</span><span className="block text-muted-foreground">Only 5 spots</span></span></span>
-          </div>
-          <Button onClick={scrollToForm} size="sm" className="ml-auto h-10 rounded-full bg-primary px-5 font-extrabold text-primary-foreground hover:bg-primary/90 md:ml-0">Book for ₹79 <ArrowRight /></Button>
+          <HeaderCountdown />
+          <Button onClick={scrollToForm} size="sm" className="h-10 rounded-full bg-primary px-5 font-extrabold text-primary-foreground hover:bg-primary/90">Book for ₹79 <ArrowRight /></Button>
         </div>
       </header>
 
