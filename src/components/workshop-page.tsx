@@ -341,7 +341,7 @@ export function WorkshopPage() {
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(venueAddress)}`;
 
   return (
-    <main id="top" className="min-h-screen overflow-x-hidden bg-background pb-20 text-foreground sm:pb-0">
+    <main id="top" className="min-h-screen overflow-x-clip bg-background pb-20 text-foreground sm:pb-0">
        <header className="sticky top-0 z-40 border-b border-border bg-card/95 shadow-sm backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:gap-6 sm:px-6">
           <Brand />
