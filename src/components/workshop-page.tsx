@@ -132,23 +132,6 @@ const takeaways = [
   "Your creator earning career roadmap",
 ];
 
-const forYou = [
-  "Aspiring creators starting from zero",
-  "Instagram and YouTube creators",
-  "Freelancers building a personal brand",
-  "Students exploring creator careers",
-  "Coaches and subject-matter experts",
-  "Small business founders",
-  "Creators ready for their first ₹10K",
-];
-
-const notForYou = [
-  "You want overnight followers without consistent work",
-  "You expect guaranteed income after three hours",
-  "You only want a recorded course",
-  "You cannot attend in person in Bangalore",
-  "You are unwilling to test, learn, and create",
-];
 
 const faqs = [
   ["When is the workshop?", "It runs for three hours, from 10:00 AM to 1:00 PM on the upcoming Saturday."],
