@@ -446,12 +446,12 @@ export function WorkshopPage() {
         <div className="testimonial-glow pointer-events-none absolute inset-0" />
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
-            eyebrow="Wall of love"
+            eyebrow="Testimonials"
             title="Creators who made it count"
             copy="Real people from past batches, building real income with what they learned in the room."
           />
           <div className="flex snap-x snap-mandatory items-end justify-center gap-0 overflow-x-auto px-6 pb-10 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {testimonials.map(({ name, handle, quote, photo, stats }, index) => {
+            {testimonials.map(({ name, handle, quote, photo, video, stats }, index) => {
               const offsets = [-12, -6, 0, 6, 12];
               const lifts = [16, 8, 0, 8, 16];
               return (
