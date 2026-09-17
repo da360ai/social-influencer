@@ -380,7 +380,7 @@ export function WorkshopPage() {
               <a href="#journey" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
             <figure className="relative hidden self-stretch lg:col-span-3 lg:block">
-              <div className="absolute inset-x-0 bottom-0 top-[18px] overflow-hidden rounded-t-full bg-secondary">
+              <div className="absolute inset-x-0 bottom-[18px] top-[18px] overflow-hidden rounded-t-full bg-secondary">
                 <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
                 <div className="absolute left-9 top-16 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground [text-shadow:0_1px_8px_rgba(255,255,255,0.55)]">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
               </div>
