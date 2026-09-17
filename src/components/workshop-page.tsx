@@ -48,6 +48,11 @@ import testimonialVideo2 from "@/assets/testimonial-video-2.mp4.asset.json";
 import testimonialVideo3 from "@/assets/testimonial-video-3.mp4.asset.json";
 import testimonialVideo4 from "@/assets/testimonial-video-4.mp4.asset.json";
 import testimonialVideo5 from "@/assets/testimonial-video-5.mp4.asset.json";
+import testimonialThumb1 from "@/assets/testimonial-thumb-1.jpg";
+import testimonialThumb2 from "@/assets/testimonial-thumb-2.jpg";
+import testimonialThumb3 from "@/assets/testimonial-thumb-3.jpg";
+import testimonialThumb4 from "@/assets/testimonial-thumb-4.jpg";
+import testimonialThumb5 from "@/assets/testimonial-thumb-5.jpg";
 
 type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -95,6 +100,7 @@ const testimonials = [
     quote: "I walked in confused about monetisation and left with a 30-day plan. My first UGC deal came three weeks later.",
     photo: testimonial1,
     video: testimonialVideo1.url,
+    thumb: testimonialThumb1,
     stats: ["18K followers", "First ₹10K"],
   },
   {
@@ -103,6 +109,7 @@ const testimonials = [
     quote: "The pricing framework alone was worth ten times the ticket. I stopped underquoting the same week.",
     photo: testimonial2,
     video: testimonialVideo2.url,
+    thumb: testimonialThumb2,
     stats: ["9K followers", "2 brand deals"],
   },
   {
@@ -111,6 +118,7 @@ const testimonials = [
     quote: "Finally understood how to position my niche so brands actually reply to my pitches.",
     photo: testimonial3,
     video: testimonialVideo3.url,
+    thumb: testimonialThumb3,
     stats: ["24K followers", "3 collabs"],
   },
   {
@@ -119,6 +127,7 @@ const testimonials = [
     quote: "Went from posting randomly to a clear content system. My reach doubled in a month.",
     photo: testimonial4,
     video: testimonialVideo4.url,
+    thumb: testimonialThumb4,
     stats: ["12K followers", "₹8K per reel"],
   },
   {
@@ -127,6 +136,7 @@ const testimonials = [
     quote: "The brand pitch template got me a reply in two days. This workshop pays for itself fast.",
     photo: testimonial5,
     video: testimonialVideo5.url,
+    thumb: testimonialThumb5,
     stats: ["31K followers", "5 deals"],
   },
 ];
@@ -451,7 +461,7 @@ export function WorkshopPage() {
             copy="Real people from past batches, building real income with what they learned in the room."
           />
           <div className="flex snap-x snap-mandatory items-end justify-center gap-0 overflow-x-auto px-6 pb-10 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {testimonials.map(({ name, handle, quote, photo, video, stats }, index) => {
+            {testimonials.map(({ name, handle, quote, video, thumb, stats }, index) => {
               const offsets = [-12, -6, 0, 6, 12];
               const lifts = [16, 8, 0, 8, 16];
               return (
@@ -474,7 +484,7 @@ export function WorkshopPage() {
                   </div>
                   <video
                     src={video}
-                    poster={photo}
+                    poster={thumb}
                     controls
                     playsInline
                     preload="none"
