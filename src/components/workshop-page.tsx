@@ -469,7 +469,7 @@ export function WorkshopPage() {
                   }`}
                   style={{
                     transform: `rotate(${offsets[index]}deg) translateY(${lifts[index]}px)`,
-                    zIndex: index === 2 ? 3 : index === 0 || index === 4 ? 1 : 2,
+                    zIndex: index + 1,
                   }}
                 >
                   <div className="flex items-center gap-2 px-3 py-2.5">
