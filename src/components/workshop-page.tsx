@@ -105,7 +105,7 @@ const testimonials = [
     photo: testimonial2,
     video: testimonialVideo2.url,
     thumb: testimonialThumb2,
-    stats: ["\n", "\n"],
+    stats: ["", ""],
   },
   {
     name: "Divya Rao",
@@ -114,7 +114,7 @@ const testimonials = [
     photo: testimonial3,
     video: testimonialVideo3.url,
     thumb: testimonialThumb3,
-    stats: ["\n", "\n"],
+    stats: ["", ""],
   },
   {
     name: "Arjun Nair",
