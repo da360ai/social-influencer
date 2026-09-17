@@ -544,15 +544,6 @@ export function WorkshopPage() {
         </div>
       </section>
 
-      <section className="py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionHeading eyebrow="Is this for you?" title="Come ready to build—not just watch" />
-          <div className="grid overflow-hidden rounded-lg border border-border md:grid-cols-2">
-            <div className="bg-card p-6 sm:p-8"><h3 className="font-display text-2xl font-extrabold">Who should attend</h3><div className="mt-6 space-y-4">{forYou.map((item) => <p key={item} className="flex gap-3 text-sm text-muted-foreground"><Check className="mt-0.5 size-4 shrink-0 text-success" />{item}</p>)}</div></div>
-            <div className="border-t border-border bg-surface p-6 sm:p-8 md:border-l md:border-t-0"><h3 className="font-display text-2xl font-extrabold">Who should not attend</h3><div className="mt-6 space-y-4">{notForYou.map((item) => <p key={item} className="flex gap-3 text-sm text-muted-foreground"><X className="mt-0.5 size-4 shrink-0 text-destructive" />{item}</p>)}</div></div>
-          </div>
-        </div>
-      </section>
 
       <section className="border-y border-border bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
