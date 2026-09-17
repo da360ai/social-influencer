@@ -109,7 +109,7 @@ const testimonials = [
   },
   {
     name: "Divya Rao",
-    handle: "@divyamakes",
+    handle: "\n",
     quote: "\n",
     photo: testimonial3,
     video: testimonialVideo3.url,
