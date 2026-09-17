@@ -472,12 +472,12 @@ export function WorkshopPage() {
                       <span className="block truncate text-[10px] font-bold text-primary">{handle}</span>
                     </span>
                   </div>
-                  <img
-                    src={photo}
-                    alt={`${name}, workshop attendee`}
-                    width={768}
-                    height={1024}
-                    loading="lazy"
+                  <video
+                    src={video}
+                    poster={photo}
+                    controls
+                    playsInline
+                    preload="none"
                     className="aspect-[3/4] w-full object-cover"
                   />
                   <p className="px-3 pt-3 text-[11px] leading-5 text-muted-foreground">“{quote}”</p>
