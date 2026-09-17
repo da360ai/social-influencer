@@ -96,7 +96,7 @@ const testimonials = [
     photo: testimonial1,
     video: testimonialVideo1.url,
     thumb: testimonialThumb1,
-    stats: ["\n", "\n"],
+    stats: ["", ""],
   },
   {
     name: "Rohan Mehta",
