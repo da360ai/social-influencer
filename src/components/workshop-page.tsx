@@ -611,7 +611,16 @@ export function WorkshopPage() {
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">Only 5 seats left</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">{"\n"}</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Book your seat for ₹79 <ArrowRight /></Button><Price /></div></div>
       </section>
 
-       <footer className="border-t border-border bg-card py-8"><div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:flex-row sm:px-6 sm:text-left"><Brand /><p className="text-xs text-muted-foreground">© 2026 Digital Academy 360. Learn · Create · Grow.</p></div></footer>
+      <footer className="border-t border-border bg-card py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:flex-row sm:px-6 sm:text-left">
+          <Brand />
+          <p className="text-xs text-muted-foreground">© 2026 Sisinty Pvt. Ltd. All rights reserved</p>
+          <div className="flex items-center gap-6 text-xs text-muted-foreground">
+            <a href="https://www.digitalacademy360.com/privacy-policy/" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">Privacy Policy</a>
+            <a href="https://www.digitalacademy360.com/terms-and-conditions/" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">Terms and Conditions</a>
+          </div>
+        </div>
+      </footer>
 
       <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl sm:hidden"><div><p className="text-[10px] font-bold uppercase text-muted-foreground">3-hour workshop</p><Price /></div><Button onClick={scrollToForm} className="bg-primary font-extrabold text-primary-foreground hover:bg-primary/90">Book now <ArrowRight /></Button></div>
     </main>
