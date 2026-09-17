@@ -65,13 +65,9 @@ const journey = [
 ];
 
 const modules = [
-  ["The Creator Economy Reality Check", "See where creator income really comes from—and what vanity metrics hide."],
   ["Find Your Creator Position", "Choose a niche, audience, and point of view brands can instantly understand."],
   ["Content That Creates Influence", "Build useful, memorable content that moves people from watching to trusting."],
-  ["From Followers to Influence", "Learn the signals that reveal genuine attention, relevance, and buying intent."],
-  ['The “Value Beats Followers” Principle', "Package your credibility even when your audience is still growing."],
   ["6 Ways to Make Money as a Creator", "Explore brand deals, UGC, services, affiliates, products, and communities."],
-  ["The Creator Income Stack", "Combine revenue streams into a practical, lower-risk earning model."],
   ["How to Get Your First Brand Deal", "Find the right brands, create a sharp pitch, and follow up professionally."],
   ["How to Price Your Content", "Use deliverables, usage rights, effort, and value to quote with confidence."],
   ["Your First ₹10K Creator Roadmap", "Leave with a focused 30-day action plan built around your strengths."],
@@ -408,7 +404,7 @@ export function WorkshopPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 grid gap-4 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
             <div>
-              <span className="text-xs font-extrabold uppercase text-primary">10-module curriculum</span>
+              <span className="text-xs font-extrabold uppercase text-primary">6-module curriculum</span>
               <h2 className="mt-3 max-w-xl font-display text-3xl font-extrabold text-foreground sm:text-4xl">A complete creator income playbook</h2>
             </div>
             <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">Tap any module to see what you’ll unpack in the room.</p>
