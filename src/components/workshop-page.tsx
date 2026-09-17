@@ -420,7 +420,7 @@ export function WorkshopPage() {
                 <article
                   key={title}
                   className={`grid min-h-52 grid-cols-2 overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow ${
-                    isLast ? "mx-auto w-full md:col-span-2 xl:col-span-3 md:min-h-64" : ""
+                    isLast ? "mx-auto w-full md:col-span-2 md:min-h-60 md:max-w-2xl xl:col-span-1 xl:col-start-2 xl:max-w-none" : ""
                   }`}
                 >
                   <img
