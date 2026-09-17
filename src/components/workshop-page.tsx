@@ -342,18 +342,6 @@ export function WorkshopPage() {
 
   return (
     <main id="top" className="min-h-screen overflow-x-clip bg-background pb-20 text-foreground sm:pb-0">
-       <header className="sticky top-0 z-40 border-b border-border bg-card/95 shadow-sm backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:gap-6 sm:px-6">
-          <Brand />
-          <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
-          <div className="ml-auto hidden items-center gap-6 md:flex">
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">26th September</span><span className="block text-muted-foreground">11AM Onwards</span></span></span>
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><MapPin className="size-5 text-primary" /><span><span className="block font-bold text-foreground">JP Nagar,</span><span className="block text-muted-foreground">Bangalore</span></span></span>
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><Users className="size-5 text-primary" /><span><span className="block font-bold text-foreground">Limited Seats</span><span className="block text-muted-foreground">Only 5 spots</span></span></span>
-          </div>
-          <Button onClick={scrollToForm} size="sm" className="ml-auto h-10 rounded-full bg-primary px-5 font-extrabold text-primary-foreground hover:bg-primary/90 md:ml-0">Book for ₹79 <ArrowRight /></Button>
-        </div>
-      </header>
 
        <section className="relative overflow-hidden border-b border-border bg-background">
          <div className="hero-glow pointer-events-none absolute inset-0" />
@@ -626,6 +614,19 @@ export function WorkshopPage() {
           </div>
         </div>
       </footer>
+
+      <header className="sticky bottom-0 z-40 hidden border-t border-border bg-card/95 shadow-sm backdrop-blur-xl sm:block">
+        <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:gap-6 sm:px-6">
+          <Brand />
+          <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
+          <div className="ml-auto hidden items-center gap-6 md:flex">
+            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">26th September</span><span className="block text-muted-foreground">11AM Onwards</span></span></span>
+            <span className="flex items-center gap-2 text-[11px] leading-tight"><MapPin className="size-5 text-primary" /><span><span className="block font-bold text-foreground">JP Nagar,</span><span className="block text-muted-foreground">Bangalore</span></span></span>
+            <span className="flex items-center gap-2 text-[11px] leading-tight"><Users className="size-5 text-primary" /><span><span className="block font-bold text-foreground">Limited Seats</span><span className="block text-muted-foreground">Only 5 spots</span></span></span>
+          </div>
+          <Button onClick={scrollToForm} size="sm" className="ml-auto h-10 rounded-full bg-primary px-5 font-extrabold text-primary-foreground hover:bg-primary/90 md:ml-0">Book for ₹79 <ArrowRight /></Button>
+        </div>
+      </header>
 
       <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl sm:hidden"><div><p className="text-[10px] font-bold uppercase text-muted-foreground">3-hour workshop</p><Price /></div><Button onClick={scrollToForm} className="bg-primary font-extrabold text-primary-foreground hover:bg-primary/90">Book now <ArrowRight /></Button></div>
     </main>
