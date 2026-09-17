@@ -415,21 +415,27 @@ export function WorkshopPage() {
             {modules.map(([title, text], index) => {
               const image = curriculumImages[index % curriculumImages.length];
               const imageFirst = index % 2 === 0;
+              const isLast = index === modules.length - 1;
               return (
-                <article key={title} className="grid min-h-52 grid-cols-2 overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow">
+                <article
+                  key={title}
+                  className={`grid min-h-52 grid-cols-2 overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-glow ${
+                    isLast ? "mx-auto w-full md:col-span-2 xl:col-span-3 md:min-h-64" : ""
+                  }`}
+                >
                   <img
                     src={image}
                     alt=""
                     width={1024}
                     height={768}
                     loading="lazy"
-                    className={`h-full min-h-52 w-full object-cover ${imageFirst ? "order-1" : "order-2"}`}
+                    className={`h-full min-h-52 w-full object-cover md:min-h-64 ${imageFirst ? "order-1" : "order-2"}`}
                   />
-                  <div className={`flex min-w-0 flex-col p-4 sm:p-5 ${imageFirst ? "order-2" : "order-1"}`}>
-                    <span className="text-xs font-extrabold text-primary">{String(index + 1).padStart(2, "0")}</span>
-                    <h3 className="mt-3 font-display text-base font-extrabold leading-tight text-foreground sm:text-lg">{title}</h3>
-                    <p className="mt-3 text-xs leading-5 text-muted-foreground">{text}</p>
-                    <span className="mt-auto inline-flex items-center gap-1 pt-4 text-[10px] font-extrabold uppercase text-primary">What you’ll learn <ArrowRight className="size-3" /></span>
+                  <div className={`flex min-w-0 flex-col p-4 sm:p-5 ${isLast ? "items-center justify-center text-center p-8 sm:p-12" : ""} ${imageFirst ? "order-2" : "order-1"}`}>
+                    <span className="text-xs font-extrabold text-primary sm:text-sm">{String(index + 1).padStart(2, "0")}</span>
+                    <h3 className={`mt-3 font-display font-extrabold leading-tight text-foreground ${isLast ? "text-2xl sm:text-3xl" : "text-base sm:text-lg"}`}>{title}</h3>
+                    <p className={`mt-3 leading-5 text-muted-foreground ${isLast ? "max-w-xl text-sm sm:text-base sm:leading-7" : "text-xs"}`}>{text}</p>
+                    <span className={`inline-flex items-center gap-1 pt-4 font-extrabold uppercase text-primary ${isLast ? "text-xs" : "mt-auto text-[10px]"}`}>What you’ll learn <ArrowRight className="size-3" /></span>
                   </div>
                 </article>
               );
