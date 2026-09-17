@@ -8,7 +8,6 @@ import {
   BarChart3,
   BriefcaseBusiness,
   CalendarDays,
-  Check,
   CheckCircle2,
   Clock3,
   Download,
