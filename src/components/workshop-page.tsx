@@ -325,10 +325,10 @@ function BookingForm() {
   );
 }
 
-function SectionHeading({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
+function SectionHeading({ eyebrow, title, copy, eyebrowClassName = "text-xs" }: { eyebrow: string; title: string; copy?: string; eyebrowClassName?: string }) {
   return (
     <div className="mx-auto mb-10 max-w-2xl text-center">
-      <span className="text-xs font-extrabold uppercase text-primary">{eyebrow}</span>
+      <span className={`${eyebrowClassName} font-extrabold uppercase text-primary`}>{eyebrow}</span>
       <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">{title}</h2>
       {copy && <p className="mt-3 text-sm leading-6 text-muted-foreground sm:text-base">{copy}</p>}
     </div>
@@ -452,6 +452,7 @@ export function WorkshopPage() {
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading
             eyebrow="Testimonials"
+            eyebrowClassName="text-base"
             title="
 "
             copy="Real people from past batches, building real income with what they learned in the room."
