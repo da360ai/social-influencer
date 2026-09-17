@@ -86,7 +86,6 @@ const outcomes = [
   { label: "Audience Creation", text: "Grow attention into a loyal community", icon: Users },
   { label: "Brand collaboration", text: "Position yourself so brands understand your value", icon: Sparkles },
   { label: "Building Business", text: "Build income streams beyond sponsorships", icon: BriefcaseBusiness },
-  { label: "Roadmap", text: "Turn the next 30 days into clear action", icon: Target },
 ];
 
 const testimonials = [
@@ -441,8 +440,8 @@ export function WorkshopPage() {
 
       <section className="border-y border-border py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <SectionHeading eyebrow="Workshop outcomes" title="Walk out with clarity across five pillars" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <SectionHeading eyebrow="Workshop outcomes" title="Walk out with clarity across four pillars" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
              {outcomes.map(({ label, text, icon: Icon }) => <article key={label} className="rounded-lg border border-border bg-card p-5 shadow-sm"><span className="grid size-11 place-items-center rounded-full bg-secondary"><Icon className="size-5 text-primary" /></span><h3 className="mt-7 font-display text-lg font-extrabold">{label}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
           </div>
         </div>
