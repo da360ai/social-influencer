@@ -48,6 +48,11 @@ import testimonialVideo2 from "@/assets/testimonial-video-2.mp4.asset.json";
 import testimonialVideo3 from "@/assets/testimonial-video-3.mp4.asset.json";
 import testimonialVideo4 from "@/assets/testimonial-video-4.mp4.asset.json";
 import testimonialVideo5 from "@/assets/testimonial-video-5.mp4.asset.json";
+import testimonialThumb1 from "@/assets/testimonial-thumb-1.jpg";
+import testimonialThumb2 from "@/assets/testimonial-thumb-2.jpg";
+import testimonialThumb3 from "@/assets/testimonial-thumb-3.jpg";
+import testimonialThumb4 from "@/assets/testimonial-thumb-4.jpg";
+import testimonialThumb5 from "@/assets/testimonial-thumb-5.jpg";
 
 type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
