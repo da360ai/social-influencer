@@ -118,7 +118,7 @@ const testimonials = [
   },
   {
     name: "Arjun Nair",
-    handle: "@arjunshoots",
+    handle: "\n",
     quote: "\n",
     photo: testimonial4,
     video: testimonialVideo4.url,
