@@ -427,7 +427,7 @@ export function WorkshopPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="Workshop outcomes" title="Walk out with clarity across five pillars" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-             {outcomes.map(({ label, text, icon: Icon }, index) => <article key={label} className={`rounded-lg border border-border bg-card p-5 shadow-sm ${index === 2 ? "lg:-translate-y-4" : ""}`}><span className="grid size-11 place-items-center rounded-full bg-secondary"><Icon className="size-5 text-primary" /></span><h3 className="mt-7 font-display text-lg font-extrabold">{label}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
+             {outcomes.map(({ label, text, icon: Icon }) => <article key={label} className="rounded-lg border border-border bg-card p-5 shadow-sm"><span className="grid size-11 place-items-center rounded-full bg-secondary"><Icon className="size-5 text-primary" /></span><h3 className="mt-7 font-display text-lg font-extrabold">{label}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
           </div>
         </div>
       </section>
