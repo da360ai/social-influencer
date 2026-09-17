@@ -509,7 +509,7 @@ export function WorkshopPage() {
             {[
               ["Bonus 1", "30 AI Skills & Prompts for Creators", "Tools, prompts, and workflows you can use immediately."],
               ["Bonus 2", "Creator Earning Career Roadmap", "A clear path from content to income that you can follow after the workshop."],
-             ].map(([badge, title, text], index) => <article key={badge} className={`rounded-xl border border-primary/20 p-7 shadow-sm ${index === 0 ? "bg-primary text-primary-foreground md:translate-y-5" : "bg-card"}`}><div className="flex items-center justify-between"><span className={`rounded-md px-3 py-1 text-xs font-extrabold uppercase ${index === 0 ? "bg-card text-primary" : "bg-secondary text-primary"}`}>{badge}</span><Gift className={`size-8 ${index === 0 ? "text-primary-foreground" : "text-primary"}`} /></div><h3 className="mt-8 max-w-md font-display text-2xl font-extrabold">{title}</h3><p className={`mt-3 text-sm leading-6 ${index === 0 ? "text-primary-foreground/80" : "text-muted-foreground"}`}>{text}</p></article>)}
+             ].map(([badge, title, text]) => <article key={badge} className="rounded-xl border border-primary/20 bg-card p-7 shadow-sm"><div className="flex items-center justify-between"><span className="rounded-md bg-secondary px-3 py-1 text-xs font-extrabold uppercase text-primary">{badge}</span><Gift className="size-8 text-primary" /></div><h3 className="mt-8 max-w-md font-display text-2xl font-extrabold text-foreground">{title}</h3><p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
           </div>
         </div>
       </section>
