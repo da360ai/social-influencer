@@ -91,7 +91,7 @@ const outcomes = [
 const testimonials = [
   {
     name: "Ananya Iyer",
-    handle: "@ananya.creates",
+    handle: "\n",
     quote: "\n",
     photo: testimonial1,
     video: testimonialVideo1.url,
