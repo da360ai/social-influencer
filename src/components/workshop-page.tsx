@@ -180,7 +180,7 @@ function scrollToForm() {
 }
 
 function MetaPill({ children }: { children: React.ReactNode }) {
-  return <span className="inline-flex min-h-12 items-center gap-2 border-r border-border px-4 py-2 text-[10px] font-extrabold uppercase text-foreground first:pl-0 last:border-r-0 sm:text-[11px]">{children}</span>;
+  return <span className="inline-flex min-h-14 items-center gap-2 border-r border-border px-4 py-2 text-[10px] font-extrabold uppercase text-foreground first:pl-0 last:border-r-0 sm:text-[11px]">{children}</span>;
 }
 
 function Price() {
@@ -241,11 +241,12 @@ function BookingForm() {
 
   return (
     <>
-      <div id="register" className="scroll-mt-24 rounded-xl border border-border bg-card p-5 shadow-glow sm:p-6 lg:col-span-4">
-        <div className="flex items-center justify-between gap-3 rounded-md bg-secondary px-3 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs">
+      <div id="register" className="scroll-mt-24 rounded-xl border border-border bg-card p-5 shadow-glow sm:p-6 lg:col-span-4 lg:ml-3">
+        <div className="flex items-center justify-between gap-3 text-[10px] font-extrabold uppercase text-primary sm:text-xs">
           <span className="inline-flex items-center gap-1.5"><MapPin className="size-3.5" /> In-person · JP Nagar, BLR</span>
-          <span className="inline-flex shrink-0 items-center gap-1 text-highlight"><Zap className="size-3.5" /> 5 seats left</span>
+          <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-secondary px-2.5 py-1.5 text-highlight"><Zap className="size-3.5" /> 5 seats left</span>
         </div>
+        <h2 className="mt-4 font-display text-3xl font-extrabold leading-none text-foreground">Join the Workshop</h2>
         <div className="my-5 grid grid-cols-3 gap-2 text-[9px] font-bold text-muted-foreground sm:text-[10px]">
           {["Fill details", "Pay via Razorpay", "WhatsApp confirm"].map((step, index) => (
              <div key={step} className="flex items-center gap-2 border-t border-border pt-3"><span className="grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">{index + 1}</span><span className="line-clamp-2">{step}</span></div>
@@ -336,16 +337,16 @@ export function WorkshopPage() {
 
        <section className="relative overflow-hidden border-b border-border bg-background">
          <div className="hero-glow pointer-events-none absolute inset-0" />
-          <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[min(calc(100vh-4rem),760px)] lg:grid-cols-12 lg:gap-0 lg:py-12">
-            <div className="relative z-10 max-w-3xl lg:col-span-5 lg:pr-5">
-              <div className="inline-flex items-center gap-2 text-xs font-extrabold uppercase text-primary"><MapPin className="size-3.5" /> Offline creator economy workshop</div>
-              <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[4.25rem]">
-               Get ready to <span className="marker-underline text-primary">Earn From Your Influence.</span>
+           <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[min(calc(100vh-4rem),720px)] lg:grid-cols-12 lg:gap-0 lg:py-10">
+             <div className="relative z-10 max-w-3xl lg:col-span-5 lg:pr-3">
+               <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs"><MapPin className="size-3.5" /> Offline creator economy workshop</div>
+               <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[3.8rem]">
+                Get ready to <span className="marker-underline text-primary">Earn From Your Influence.</span>
             </h1>
              <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground">
               Understand exactly how creators turn attention into income and build your first monetisation roadmap. <strong className="text-foreground">Real strategies. Real examples. Real opportunities.</strong>
             </p>
-             <div className="mt-7 flex flex-wrap border-y border-border">
+              <div className="mt-7 grid grid-cols-2 border-y border-border sm:grid-cols-4">
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 3 hours</MetaPill>
               <MetaPill><CalendarDays className="size-3.5 text-highlight" /> Upcoming Saturday</MetaPill>
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 10AM to 1PM</MetaPill>
@@ -358,10 +359,10 @@ export function WorkshopPage() {
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
               <a href="#journey" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
-            <figure className="relative hidden h-[540px] self-center lg:col-span-3 lg:block">
-              <div className="absolute -left-3 top-3 z-10 max-w-36 rotate-[-5deg] font-display text-base font-bold leading-tight text-foreground">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
-              <div className="absolute inset-x-1 bottom-0 top-12 overflow-hidden rounded-[48%_48%_3rem_3rem] bg-secondary">
-                <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
+             <figure className="relative hidden h-[560px] self-end lg:col-span-3 lg:block">
+               <div className="absolute -left-2 top-2 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
+               <div className="absolute inset-x-0 bottom-0 top-16 overflow-hidden rounded-t-full bg-secondary">
+                 <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
               </div>
            </figure>
           <BookingForm />
