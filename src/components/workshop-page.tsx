@@ -441,7 +441,7 @@ export function WorkshopPage() {
       <section className="border-y border-border py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="Workshop outcomes" title="Walk out with clarity across four pillars" />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
              {outcomes.map(({ label, text, icon: Icon }) => <article key={label} className="rounded-lg border border-border bg-card p-5 shadow-sm"><span className="grid size-11 place-items-center rounded-full bg-secondary"><Icon className="size-5 text-primary" /></span><h3 className="mt-7 font-display text-lg font-extrabold">{label}</h3><p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p></article>)}
           </div>
         </div>
