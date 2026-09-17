@@ -484,7 +484,7 @@ export function WorkshopPage() {
                   </div>
                   <video
                     src={video}
-                    poster={photo}
+                    poster={thumb}
                     controls
                     playsInline
                     preload="none"
