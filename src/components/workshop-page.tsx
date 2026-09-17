@@ -325,11 +325,11 @@ function BookingForm() {
   );
 }
 
-function SectionHeading({ eyebrow, title, copy, eyebrowClassName = "text-xs" }: { eyebrow: string; title: string; copy?: string; eyebrowClassName?: string }) {
+function SectionHeading({ eyebrow, title, copy, eyebrowClassName = "text-xs", titleClassName = "text-foreground" }: { eyebrow: string; title: string; copy?: string; eyebrowClassName?: string; titleClassName?: string }) {
   return (
     <div className="mx-auto mb-10 max-w-2xl text-center">
       <span className={`${eyebrowClassName} font-extrabold uppercase text-primary`}>{eyebrow}</span>
-      <h2 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">{title}</h2>
+      <h2 className={`mt-3 font-display text-3xl font-extrabold sm:text-4xl ${titleClassName}`}>{title}</h2>
       {copy && <p className="mt-3 text-sm leading-6 text-muted-foreground sm:text-base">{copy}</p>}
     </div>
   );
@@ -504,7 +504,7 @@ export function WorkshopPage() {
 
       <section className="bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionHeading eyebrow="Included with your seat" title="Two bonuses built for immediate action" />
+          <SectionHeading eyebrow="Included with your seat" title="Two bonuses built for immediate action" titleClassName="text-primary" />
           <div className="grid gap-5 md:grid-cols-2">
             {[
               ["Bonus 1", "30 AI Skills & Prompts for Creators", "Tools, prompts, and workflows you can use immediately."],
