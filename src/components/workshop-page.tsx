@@ -149,7 +149,7 @@ const takeaways = [
 
 
 const faqs = [
-  ["When is the workshop?", "It runs for three hours, from 10:00 AM to 1:00 PM on the upcoming Saturday."],
+  ["When is the workshop?", "It runs for three hours, from 11:00 AM Onwards on the upcoming Saturday."],
   ["Will I get a recording?", "No. This is a live, in-person workshop designed around practical exercises, questions, and feedback."],
   ["Where is the venue?", "The workshop is at the Digital Academy 360 campus in JP Nagar, Bangalore. Full directions are included with your ticket confirmation."],
   ["Do I need an existing audience?", "No. The frameworks work whether you are beginning from zero or already creating consistently."],
