@@ -463,19 +463,20 @@ export function WorkshopPage() {
 "
             copy="Real people from past batches, building real income with what they learned in the room."
           />
-          <div className="flex snap-x snap-mandatory items-end justify-center gap-0 overflow-x-auto px-6 pb-10 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+           <div className="flex snap-x snap-mandatory items-start justify-center gap-0 overflow-x-auto px-6 pb-14 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {testimonials.map(({ name, handle, quote, video, thumb, stats }, index) => {
-              const offsets = [-12, -6, 0, 6, 12];
-              const lifts = [16, 8, 0, 8, 16];
+               const offsets = [-10, -5, 0, 5, 10];
+               const lifts = [28, 8, 0, 8, 28];
+               const layers = [1, 2, 3, 2, 1];
               return (
                 <article
-                  key={handle}
-                  className={`w-48 shrink-0 snap-center overflow-hidden rounded-xl border border-border bg-card shadow-glow transition-transform duration-300 hover:z-20 hover:-translate-y-2 sm:w-56 lg:w-60 ${
+                   key={name}
+                   className={`w-48 shrink-0 origin-top snap-center overflow-hidden rounded-xl border border-border bg-card shadow-glow transition-transform duration-300 hover:z-20 sm:w-56 lg:w-60 ${
                     index > 0 ? "-ml-7 sm:-ml-9" : ""
                   }`}
                   style={{
                     transform: `rotate(${offsets[index]}deg) translateY(${lifts[index]}px)`,
-                    zIndex: index + 1,
+                     zIndex: layers[index],
                   }}
                 >
                   <div className="flex items-center gap-2 px-3 py-2.5">
