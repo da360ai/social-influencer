@@ -258,7 +258,7 @@ function BookingForm() {
 
   return (
     <>
-      <div id="register" className="scroll-mt-24 rounded-xl border border-border bg-card p-5 shadow-glow sm:p-6 lg:col-span-4 lg:ml-3">
+      <div id="register" className="scroll-mt-24 rounded-xl border border-border bg-card p-5 shadow-glow sm:p-6">
         <div className="flex items-center justify-between gap-3 text-[10px] font-extrabold uppercase text-primary sm:text-xs">
           <span className="inline-flex items-center gap-1.5"><MapPin className="size-3.5" /> In-person · JP Nagar, BLR</span>
           <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-secondary px-2.5 py-1.5 text-highlight"><Zap className="size-3.5" /> 15 SEATS LEFT</span>
@@ -347,7 +347,7 @@ export function WorkshopPage() {
   useEffect(() => {
     const footer = footerRef.current;
     if (!footer || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(([entry]) => setFooterVisible(entry.isIntersecting));
+    const observer = new IntersectionObserver(([entry]) => setFooterVisible(entry?.isIntersecting ?? false));
     observer.observe(footer);
     return () => observer.disconnect();
   }, []);
@@ -366,7 +366,7 @@ export function WorkshopPage() {
 
        <section className="relative overflow-hidden border-b border-border bg-background">
          <div className="hero-glow pointer-events-none absolute inset-0" />
-           <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[min(calc(100vh-4rem),720px)] lg:grid-cols-12 lg:gap-0 lg:py-10">
+            <div className="relative mx-auto grid max-w-7xl items-center gap-7 px-4 py-9 sm:px-6 lg:min-h-[min(calc(100vh-4rem),720px)] lg:grid-cols-12 lg:items-stretch lg:gap-0 lg:py-10">
              <div className="relative z-10 max-w-3xl lg:col-span-5 lg:pr-3">
                <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs"><MapPin className="size-3.5" /> OFFLINE CREATOR  WORKSHOP</div>
                <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[3.8rem]">
@@ -388,13 +388,15 @@ export function WorkshopPage() {
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
               <a href="#journey" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
-            <figure className="relative hidden self-stretch lg:col-span-3 lg:block">
-              <div className="absolute inset-x-0 bottom-[18px] top-[18px] overflow-hidden rounded-t-full bg-secondary">
-                <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
-                <div className="absolute left-9 top-16 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground [text-shadow:0_1px_8px_rgba(255,255,255,0.55)]">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
-              </div>
-           </figure>
-          <BookingForm />
+             <div className="relative lg:col-span-7 lg:flex lg:min-h-0 lg:items-center lg:justify-end">
+               <figure className="absolute inset-0 hidden overflow-hidden rounded-[20px] bg-secondary lg:block">
+                 <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
+                 <div className="absolute left-9 top-16 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground [text-shadow:0_1px_8px_rgba(255,255,255,0.55)]">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
+               </figure>
+               <div className="relative z-10 w-full lg:w-4/7">
+                 <BookingForm />
+               </div>
+             </div>
         </div>
       </section>
 
