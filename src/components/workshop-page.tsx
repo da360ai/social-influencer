@@ -391,7 +391,7 @@ export function WorkshopPage() {
              <div className="relative lg:col-span-7 lg:flex lg:min-h-0 lg:items-center lg:justify-end lg:p-5">
                <figure className="absolute inset-0 hidden overflow-hidden rounded-[20px] bg-secondary lg:block">
                  <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={1024} className="h-full w-full object-cover object-left" />
-                 <div className="absolute left-9 top-16 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground [text-shadow:0_1px_8px_rgba(255,255,255,0.55)]">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
+                 <div className="absolute left-9 top-16 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground [text-shadow:0_1px_8px_rgba(255,255,255,0.55)]">{"\n"}</div>
                </figure>
                <div className="relative z-10 w-full lg:w-4/7">
                  <BookingForm />
