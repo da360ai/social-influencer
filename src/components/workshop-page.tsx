@@ -90,7 +90,7 @@ const outcomes = [
 
 const testimonials = [
   {
-    name: "Ananya Iyer",
+    name: "Khushboo",
     handle: "\n",
     quote: "\n",
     photo: testimonial1,
