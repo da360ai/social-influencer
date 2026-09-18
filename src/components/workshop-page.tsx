@@ -511,8 +511,8 @@ export function WorkshopPage() {
                   </button>
                   <p className="px-3 pt-3 text-[11px] leading-5 text-muted-foreground">“{quote}”</p>
                   <div className="mt-3 flex items-center justify-center gap-2 bg-primary px-3 py-2.5">
-                    {stats.map((stat) => (
-                      <span key={stat} className="rounded-full border border-primary-foreground/50 px-2.5 py-1 text-[9px] font-extrabold text-primary-foreground sm:text-[10px]">
+                    {stats.map((stat, statIndex) => (
+                      <span key={`${video}-${statIndex}`} className="rounded-full border border-primary-foreground/50 px-2.5 py-1 text-[9px] font-extrabold text-primary-foreground sm:text-[10px]">
                         {stat}
                       </span>
                     ))}
