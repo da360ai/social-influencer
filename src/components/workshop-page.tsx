@@ -623,7 +623,7 @@ export function WorkshopPage() {
           <p className="text-xs text-muted-foreground">© 2026 Sisinty Pvt. Ltd. All rights reserved</p>
           <div className="flex items-center gap-6 text-xs text-muted-foreground">
             <a href="https://www.digitalacademy360.com/da360-privacy-policy" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">Privacy Policy</a>
-            <a href="https://www.digitalacademy360.com/terms-and-conditions/" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">Terms and Conditions</a>
+            <a href="https://www.digitalacademy360.com/terms-conditions" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">Terms and Conditions</a>
           </div>
         </div>
       </footer>
