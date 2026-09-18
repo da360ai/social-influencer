@@ -38,6 +38,7 @@ import curriculumContent from "@/assets/curriculum-content.jpg";
 import curriculumInfluence from "@/assets/curriculum-influence.jpg";
 import curriculumIncome from "@/assets/curriculum-income.jpg";
 import curriculumBrand from "@/assets/curriculum-brand.jpg";
+import curriculumRoadmap from "@/assets/curriculum-roadmap.jpg";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
@@ -79,6 +80,7 @@ const curriculumImages = [
   curriculumInfluence,
   curriculumIncome,
   curriculumBrand,
+  curriculumRoadmap,
 ];
 
 const outcomes = [
