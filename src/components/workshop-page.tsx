@@ -99,7 +99,7 @@ const testimonials = [
     stats: ["", ""],
   },
   {
-    name: "Rohan Mehta",
+    name: "Roopali",
     handle: "\n",
     quote: "\n",
     photo: testimonial2,
