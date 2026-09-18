@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
   ArrowRight,
@@ -341,6 +341,16 @@ export function WorkshopPage() {
   const venueAddress = "Digital Academy 360, 46/A, 1st Main Rd, opposite Mini Forest, Sarakki Industrial Layout, 3rd Phase, J. P. Nagar, Bangalore, Karnataka 560078";
   const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(venueAddress)}&output=embed`;
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(venueAddress)}`;
+  const footerRef = useRef<HTMLElement | null>(null);
+  const [footerVisible, setFooterVisible] = useState(false);
+
+  useEffect(() => {
+    const footer = footerRef.current;
+    if (!footer || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(([entry]) => setFooterVisible(entry.isIntersecting));
+    observer.observe(footer);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main id="top" className="min-h-screen overflow-x-clip bg-background pb-20 text-foreground sm:pb-0">
@@ -615,7 +625,7 @@ export function WorkshopPage() {
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">ONLY 15 SEATS LEFT</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">{"\n"}</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Book your seat for ₹79 <ArrowRight /></Button><Price /></div></div>
       </section>
 
-      <footer className="border-t border-border bg-card py-8">
+      <footer ref={footerRef} className="border-t border-border bg-card py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:flex-row sm:px-6 sm:text-left">
           <Brand />
           <p className="text-xs text-muted-foreground">© 2026 Sisinty Pvt. Ltd. All rights reserved</p>
@@ -626,7 +636,7 @@ export function WorkshopPage() {
         </div>
       </footer>
 
-      <header className="sticky bottom-0 z-40 hidden border-t border-border bg-card/95 shadow-sm backdrop-blur-xl sm:block">
+      {!footerVisible && <header className="sticky bottom-0 z-40 hidden border-t border-border bg-card/95 shadow-sm backdrop-blur-xl sm:block">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:gap-6 sm:px-6">
           <Brand />
           <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
@@ -637,7 +647,7 @@ export function WorkshopPage() {
           </div>
           <Button onClick={scrollToForm} size="sm" className="ml-auto h-10 rounded-full bg-primary px-5 font-extrabold text-primary-foreground hover:bg-primary/90 md:ml-0">Book for ₹79 <ArrowRight /></Button>
         </div>
-      </header>
+      </header>}
 
       <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl sm:hidden"><div><p className="text-[10px] font-bold uppercase text-muted-foreground">3-hour workshop</p><Price /></div><Button onClick={scrollToForm} className="bg-primary font-extrabold text-primary-foreground hover:bg-primary/90">Book now <ArrowRight /></Button></div>
     </main>
