@@ -58,7 +58,7 @@ type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
 
 const journey = [
-  { label: "Create", text: "Build content people want to consume", icon: Lightbulb },
+  { label: "Create", text: "Build content people want to see", icon: Lightbulb },
   { label: "Grow", text: "Build attention, Drive engagement and Gain audience trust", icon: BarChart3 },
   { label: "POSITIONING", text: "Become valuable in a specific niche", icon: Target },
   { label: "Monetise", text: "Turn attention and trust into income", icon: BadgeIndianRupee },
