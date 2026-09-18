@@ -527,21 +527,21 @@ export function WorkshopPage() {
              <div className="relative overflow-hidden rounded-xl border border-border bg-secondary p-3 shadow-glow lg:-rotate-2">
               <img
                 src={mentorPortrait.url}
-                alt="Sathiyaseelan S, Performance Marketer and workshop mentor"
+                alt="Vignesh Shanmugasamy, Digital Marketing Trainer and workshop mentor"
                 className="aspect-[3/4] h-full w-full rounded-lg object-cover object-top"
                 loading="lazy"
               />
             </div>
             <div>
               <p className="text-xs font-extrabold uppercase text-primary">Your mentor</p>
-              <h3 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">SATHIYASEELAN S</h3>
-              <span className="mt-3 inline-flex rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary">Performance Marketer</span>
+              <h3 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">VIGNESH SHANMUGASAMY</h3>
+              <span className="mt-3 inline-flex rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary">Digital Marketing Trainer</span>
               <div className="mt-7 space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
                 <p>
-                  Performance Marketing Specialist with proven expertise in driving sales, app installs, and lead generation across multiple industries. Over the past <strong className="text-foreground">three years</strong>, I&apos;ve managed and optimized campaigns with monthly ad spends exceeding <strong className="text-foreground">₹5 crore</strong>, consistently maximizing ROAS.
+                  Digital marketing and training professional with around <strong className="text-foreground">6+ years</strong> of experience across e-commerce, healthcare, sporting goods, and legal. As a trainer, I focus on practical, industry-oriented learning — helping students understand how digital marketing actually works in the real world through projects, communities, webinars, and hands-on opportunities that make them job-ready.
                 </p>
                 <p>
-                  My core strength lies in <strong className="text-foreground">Google Ads</strong> and <strong className="text-foreground">Meta Ads</strong>, where I develop data-driven strategies, execute high-impact campaigns, and scale winning campaigns for sustainable growth.
+                  My core expertise lies in <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Social Media Marketing</strong>, and <strong className="text-foreground">Performance Marketing</strong> — with a particular interest in <strong className="text-foreground">creator and influencer marketing</strong>, from identifying the right creators to planning campaigns and measuring their real impact.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap items-end justify-between gap-2">
@@ -550,10 +550,10 @@ export function WorkshopPage() {
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
-                  ["5Cr+", "Budget Spent"],
-                  ["80+", "Campaigns"],
-                  ["15,000+", "Leads Generated"],
-                  ["25+", "Platforms Leveraged"],
+                  ["6+", "Years Experience"],
+                  ["4+", "Industries"],
+                  ["8+", "Core Skills"],
+                  ["100s", "Students Trained"],
                 ].map(([value, label]) => (
                   <div key={label} className="rounded-md border border-border bg-card px-3 py-5 text-center">
                     <strong className="font-display text-xl font-extrabold text-primary sm:text-2xl">{value}</strong>
