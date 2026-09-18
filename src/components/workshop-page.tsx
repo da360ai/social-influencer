@@ -84,7 +84,7 @@ const curriculumImages = [
 ];
 
 const outcomes = [
-  { label: "Content Creation ", text: "Create scroll-stopping, trust-building content", icon: PlayCircle },
+  { label: "Content Creation ", text: "Create scroll-stopping and  trust-building content", icon: PlayCircle },
   { label: "Audience Creation", text: "Grow attention into a loyal community", icon: Users },
   { label: "Brand collaboration", text: "Position yourself so brands understand your value", icon: Sparkles },
   { label: "Building Business", text: "Build income streams beyond sponsorships", icon: BriefcaseBusiness },
