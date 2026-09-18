@@ -528,7 +528,7 @@ export function WorkshopPage() {
               if (!open) setSelectedTestimonial(null);
             }}
           >
-            <DialogContent className="w-[calc(100%-2rem)] max-w-sm gap-3 border-primary/30 bg-card p-3 shadow-glow sm:max-w-md">
+            <DialogContent className="w-[calc(100%-2rem)] max-w-sm origin-center gap-3 border-primary/30 bg-card p-3 shadow-glow data-[state=open]:duration-300 data-[state=open]:zoom-in-75 data-[state=closed]:duration-200 data-[state=closed]:zoom-out-75 sm:max-w-md">
               {selectedTestimonial && (
                 <>
                   <DialogHeader className="pr-10 text-left">
@@ -544,7 +544,11 @@ export function WorkshopPage() {
                     controls
                     autoPlay
                     playsInline
-                    className="max-h-[72vh] w-full rounded-md bg-foreground object-contain"
+                    preload="auto"
+                    onCanPlay={(event) => {
+                      void event.currentTarget.play().catch(() => undefined);
+                    }}
+                    className="max-h-[72vh] w-full animate-scale-in rounded-md bg-foreground object-contain"
                   />
                 </>
               )}
