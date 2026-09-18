@@ -347,7 +347,7 @@ export function WorkshopPage() {
   useEffect(() => {
     const footer = footerRef.current;
     if (!footer || typeof IntersectionObserver === "undefined") return;
-    const observer = new IntersectionObserver(([entry]) => setFooterVisible(entry.isIntersecting));
+    const observer = new IntersectionObserver(([entry]) => setFooterVisible(entry?.isIntersecting ?? false));
     observer.observe(footer);
     return () => observer.disconnect();
   }, []);
