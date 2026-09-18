@@ -538,10 +538,10 @@ export function WorkshopPage() {
               <span className="mt-3 inline-flex rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary">Digital Marketing Trainer</span>
               <div className="mt-7 space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
                 <p>
-                  Digital marketing and training professional with around <strong className="text-foreground">6+ years</strong> of experience across e-commerce, healthcare, sporting goods, and legal. As a trainer, I focus on practical, industry-oriented learning — helping students understand how digital marketing actually works in the real world through projects, communities, webinars, and hands-on opportunities that make them job-ready.
+                  Digital marketing and training professional with around <strong className="text-foreground">6+ years</strong> of experience across e-commerce, healthcare, sporting goods, and legal. As a trainer, I focus on practical, industry-oriented learning  helping students understand how digital marketing actually works in the real world through projects, communities, webinars, and hands-on opportunities that make them job-ready.
                 </p>
                 <p>
-                  My core expertise lies in <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Social Media Marketing</strong>, and <strong className="text-foreground">Performance Marketing</strong> — with a particular interest in <strong className="text-foreground">creator and influencer marketing</strong>, from identifying the right creators to planning campaigns and measuring their real impact.
+                  My core expertise lies in <strong className="text-foreground">Google Ads</strong>, <strong className="text-foreground">Meta Ads</strong>, <strong className="text-foreground">SEO</strong>, <strong className="text-foreground">Social Media Marketing</strong>, and <strong className="text-foreground">Performance Marketing</strong>  with a particular interest in <strong className="text-foreground">creator and influencer marketing</strong>, from identifying the right creators to planning campaigns and measuring their real impact.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap items-end justify-between gap-2">
