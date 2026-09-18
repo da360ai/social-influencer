@@ -6,3 +6,4 @@
 - [x] Verify desktop and mobile flows
 - [x] Redesign the full page in the bright reference-led editorial theme
 - [x] Verify the redesigned page at desktop and mobile sizes
+- [x] Open each selected testimonial video in a focused pop-out player

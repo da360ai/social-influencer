@@ -343,6 +343,7 @@ export function WorkshopPage() {
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(venueAddress)}`;
   const footerRef = useRef<HTMLElement | null>(null);
   const [footerVisible, setFooterVisible] = useState(false);
+  const [selectedTestimonial, setSelectedTestimonial] = useState<(typeof testimonials)[number] | null>(null);
 
   useEffect(() => {
     const footer = footerRef.current;
@@ -474,12 +475,13 @@ export function WorkshopPage() {
             copy="Real people from past batches, building real income with what they learned in the room."
           />
           <div className="flex snap-x snap-mandatory items-end justify-center gap-0 overflow-x-auto px-6 pb-10 pt-10 sm:px-10 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {testimonials.map(({ name, handle, quote, video, thumb, stats }, index) => {
+            {testimonials.map((testimonial, index) => {
+              const { name, handle, quote, video, thumb, stats } = testimonial;
               const offsets = [-12, -6, 0, 6, 12];
               const lifts = [16, 8, 0, 8, 16];
               return (
                 <article
-                  key={handle}
+                  key={video}
                   className={`w-48 shrink-0 snap-center overflow-hidden rounded-xl border border-border bg-card shadow-glow transition-transform duration-300 hover:z-20 hover:-translate-y-2 sm:w-56 lg:w-60 ${
                     index > 0 ? "-ml-7 sm:-ml-9" : ""
                   }`}
@@ -495,18 +497,22 @@ export function WorkshopPage() {
                       <span className="block truncate text-[10px] font-bold text-primary">{handle}</span>
                     </span>
                   </div>
-                  <video
-                    src={video}
-                    poster={thumb}
-                    controls
-                    playsInline
-                    preload="none"
-                    className="aspect-[3/4] w-full object-cover"
-                  />
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTestimonial(testimonial)}
+                    aria-label={`Play ${name}'s testimonial video`}
+                    className="group relative block aspect-[3/4] w-full cursor-pointer overflow-hidden bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+                  >
+                    <img src={thumb} alt="" className="size-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+                    <span className="absolute inset-0 bg-foreground/10 transition-colors group-hover:bg-foreground/20" />
+                    <span className="absolute left-1/2 top-1/2 grid size-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-card/95 text-primary shadow-glow transition-transform group-hover:scale-110">
+                      <PlayCircle className="size-7" aria-hidden="true" />
+                    </span>
+                  </button>
                   <p className="px-3 pt-3 text-[11px] leading-5 text-muted-foreground">“{quote}”</p>
                   <div className="mt-3 flex items-center justify-center gap-2 bg-primary px-3 py-2.5">
-                    {stats.map((stat) => (
-                      <span key={stat} className="rounded-full border border-primary-foreground/50 px-2.5 py-1 text-[9px] font-extrabold text-primary-foreground sm:text-[10px]">
+                    {stats.map((stat, statIndex) => (
+                      <span key={`${video}-${statIndex}`} className="rounded-full border border-primary-foreground/50 px-2.5 py-1 text-[9px] font-extrabold text-primary-foreground sm:text-[10px]">
                         {stat}
                       </span>
                     ))}
@@ -515,6 +521,35 @@ export function WorkshopPage() {
               );
             })}
           </div>
+
+          <Dialog
+            open={selectedTestimonial !== null}
+            onOpenChange={(open) => {
+              if (!open) setSelectedTestimonial(null);
+            }}
+          >
+            <DialogContent className="w-[calc(100%-2rem)] max-w-sm gap-3 border-primary/30 bg-card p-3 shadow-glow sm:max-w-md">
+              {selectedTestimonial && (
+                <>
+                  <DialogHeader className="pr-10 text-left">
+                    <DialogTitle className="font-display text-xl font-extrabold text-foreground">
+                      {selectedTestimonial.name}
+                    </DialogTitle>
+                    <DialogDescription>Testimonial</DialogDescription>
+                  </DialogHeader>
+                  <video
+                    key={selectedTestimonial.video}
+                    src={selectedTestimonial.video}
+                    poster={selectedTestimonial.thumb}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="max-h-[72vh] w-full rounded-md bg-foreground object-contain"
+                  />
+                </>
+              )}
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 
