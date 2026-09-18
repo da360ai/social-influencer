@@ -427,11 +427,11 @@ export function WorkshopPage() {
                     loading="lazy"
                     className={`h-full min-h-52 w-full object-cover md:min-h-64 ${imageFirst ? "order-1" : "order-2"}`}
                   />
-                  <div className={`flex min-w-0 flex-col p-4 sm:p-5 ${imageFirst ? "order-2" : "order-1"}`}>
-                    <span className="text-xs font-extrabold text-primary sm:text-sm">{String(index + 1).padStart(2, "0")}</span>
-                    <h3 className="mt-3 font-display text-base font-extrabold leading-tight text-foreground sm:text-lg">{title}</h3>
-                    <p className="mt-3 text-xs leading-5 text-muted-foreground">{text}</p>
-                    <span className="mt-auto inline-flex items-center gap-1 pt-4 text-[10px] font-extrabold uppercase text-primary">What you’ll learn <ArrowRight className="size-3" /></span>
+                  <div className={`flex min-w-0 flex-col p-4 sm:p-5 ${imageFirst ? "order-2" : "order-1"} ${index === 5 ? "bg-success" : ""}`}>
+                    <span className={`text-xs font-extrabold sm:text-sm ${index === 5 ? "text-white" : "text-primary"}`}>{String(index + 1).padStart(2, "0")}</span>
+                    <h3 className={`mt-3 font-display text-base font-extrabold leading-tight sm:text-lg ${index === 5 ? "text-white" : "text-foreground"}`}>{title}</h3>
+                    <p className={`mt-3 text-xs leading-5 ${index === 5 ? "text-white/85" : "text-muted-foreground"}`}>{text}</p>
+                    <span className={`mt-auto inline-flex items-center gap-1 pt-4 text-[10px] font-extrabold uppercase ${index === 5 ? "text-white" : "text-primary"}`}>What you’ll learn <ArrowRight className="size-3" /></span>
                   </div>
                 </article>
               );
