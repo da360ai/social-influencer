@@ -410,7 +410,7 @@ export function WorkshopPage() {
               <span className="text-xs font-extrabold uppercase text-primary">6-module curriculum</span>
               <h2 className="mt-3 max-w-xl font-display text-3xl font-extrabold text-foreground sm:text-4xl">A complete creator income playbook</h2>
             </div>
-            <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">Tap any module to see what you’ll unpack in the room.</p>
+            <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">{"\n"}</p>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {modules.map(([title, text], index) => {
