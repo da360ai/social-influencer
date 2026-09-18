@@ -32,7 +32,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import academyLogo from "@/assets/digital-academy-360-logo.png.asset.json";
 import mentorPortrait from "@/assets/mentor-portrait.jpg.asset.json";
-import creatorWorkshopHero from "@/assets/creator-workshop-hero-phone-camera.jpg";
+import creatorWorkshopHero from "@/assets/creator-workshop-hero-wide.jpg";
 import curriculumPosition from "@/assets/curriculum-position.jpg";
 import curriculumContent from "@/assets/curriculum-content.jpg";
 import curriculumInfluence from "@/assets/curriculum-influence.jpg";
@@ -388,9 +388,9 @@ export function WorkshopPage() {
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
               <a href="#journey" className="mt-7 inline-flex items-center gap-2 text-xs font-bold uppercase text-muted-foreground transition-colors hover:text-primary">See what you’ll master <ArrowDown className="size-4" /></a>
           </div>
-             <div className="relative lg:col-span-7 lg:flex lg:min-h-0 lg:items-center lg:justify-end">
+             <div className="relative lg:col-span-7 lg:flex lg:min-h-0 lg:items-center lg:justify-end lg:p-5">
                <figure className="absolute inset-0 hidden overflow-hidden rounded-[20px] bg-secondary lg:block">
-                 <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={900} className="h-full w-full object-cover object-center" />
+                 <img src={creatorWorkshopHero} alt="Creator filming content with her phone beside a camera and laptop" width={1280} height={1024} className="h-full w-full object-cover object-left" />
                  <div className="absolute left-9 top-16 z-10 max-w-40 rotate-[-5deg] font-display text-lg font-bold leading-tight text-foreground [text-shadow:0_1px_8px_rgba(255,255,255,0.55)]">Real skills.<br />Real strategies.<br /><span className="text-primary">Real income.</span></div>
                </figure>
                <div className="relative z-10 w-full lg:w-4/7">
