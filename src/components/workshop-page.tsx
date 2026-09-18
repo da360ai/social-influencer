@@ -625,7 +625,7 @@ export function WorkshopPage() {
         <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">ONLY 15 SEATS LEFT</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">{"\n"}</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Book your seat for ₹79 <ArrowRight /></Button><Price /></div></div>
       </section>
 
-      <footer className="border-t border-border bg-card py-8">
+      <footer ref={footerRef} className="border-t border-border bg-card py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:flex-row sm:px-6 sm:text-left">
           <Brand />
           <p className="text-xs text-muted-foreground">© 2026 Sisinty Pvt. Ltd. All rights reserved</p>
@@ -636,7 +636,7 @@ export function WorkshopPage() {
         </div>
       </footer>
 
-      <header className="sticky bottom-0 z-40 hidden border-t border-border bg-card/95 shadow-sm backdrop-blur-xl sm:block">
+      {!footerVisible && <header className="sticky bottom-0 z-40 hidden border-t border-border bg-card/95 shadow-sm backdrop-blur-xl sm:block">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:gap-6 sm:px-6">
           <Brand />
           <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
