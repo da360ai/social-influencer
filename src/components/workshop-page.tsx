@@ -259,7 +259,7 @@ function BookingForm() {
       <div id="register" className="scroll-mt-24 rounded-xl border border-border bg-card p-5 shadow-glow sm:p-6 lg:col-span-4 lg:ml-3">
         <div className="flex items-center justify-between gap-3 text-[10px] font-extrabold uppercase text-primary sm:text-xs">
           <span className="inline-flex items-center gap-1.5"><MapPin className="size-3.5" /> In-person · JP Nagar, BLR</span>
-          <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-secondary px-2.5 py-1.5 text-highlight"><Zap className="size-3.5" /> 5 seats left</span>
+          <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-secondary px-2.5 py-1.5 text-highlight"><Zap className="size-3.5" /> 15 SEATS LEFT</span>
         </div>
         <h2 className="mt-4 font-display text-3xl font-extrabold leading-none text-foreground">Join the Workshop</h2>
         <div className="my-5 grid grid-cols-3 gap-2 text-[9px] font-bold text-muted-foreground sm:text-[10px]">
