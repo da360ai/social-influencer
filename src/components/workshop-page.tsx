@@ -401,6 +401,34 @@ export function WorkshopPage() {
         </div>
       </section>
 
+      <section className="border-b border-border bg-surface py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
+            <span className="inline-flex rounded-full border border-primary/25 bg-secondary px-3 py-1.5 text-[10px] font-extrabold uppercase text-primary">
+              Watch intro
+            </span>
+            <h2 className="mt-4 font-display text-3xl font-extrabold leading-tight text-foreground sm:text-5xl">
+              See what you&apos;ll learn in <span className="text-primary">3 hours</span>
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground sm:text-base">
+              A quick walkthrough from your mentor on what this workshop covers and who it&apos;s for.
+            </p>
+          </div>
+          <div className="mx-auto max-w-5xl overflow-hidden rounded-[20px] border border-border bg-foreground shadow-glow">
+            <video
+              src={testimonialVideo5.url}
+              poster={testimonialThumb5}
+              controls
+              playsInline
+              preload="metadata"
+              className="aspect-video w-full object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+
       <section id="journey" className="border-b border-border py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="The creator journey" title="Four moves. One earning engine." copy="The workshop connects every stage, so your content becomes more than a posting habit." />
