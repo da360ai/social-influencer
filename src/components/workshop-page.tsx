@@ -544,6 +544,10 @@ export function WorkshopPage() {
                     controls
                     autoPlay
                     playsInline
+                    preload="auto"
+                    onCanPlay={(event) => {
+                      void event.currentTarget.play().catch(() => undefined);
+                    }}
                     className="max-h-[72vh] w-full animate-scale-in rounded-md bg-foreground object-contain"
                   />
                 </>
