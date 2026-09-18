@@ -108,7 +108,7 @@ const testimonials = [
     stats: ["", ""],
   },
   {
-    name: "Divya Rao",
+    name: "Prakash",
     handle: "\n",
     quote: "\n",
     photo: testimonial3,
@@ -117,7 +117,7 @@ const testimonials = [
     stats: ["", ""],
   },
   {
-    name: "Testimonial Video 1",
+    name: "Binamin",
     handle: "\n",
     quote: "\n",
     photo: testimonial4,
