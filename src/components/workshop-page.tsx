@@ -342,6 +342,19 @@ export function WorkshopPage() {
 
   return (
     <main id="top" className="min-h-screen overflow-x-clip bg-background pb-20 text-foreground sm:pb-0">
+      <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur-xl">
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center gap-4 px-4 sm:h-[90px] sm:px-6">
+          <Brand />
+          <div className="ml-auto hidden items-center gap-3 sm:flex sm:pr-8 lg:pr-24">
+            <Clock3 className="size-5 text-primary" />
+            <span className="text-sm text-muted-foreground">Workshop starts in</span>
+            <Countdown />
+          </div>
+          <Button onClick={scrollToForm} className="ml-auto h-11 bg-primary px-4 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90 sm:ml-0 sm:px-6">
+            Book for ₹79 <ArrowRight />
+          </Button>
+        </div>
+      </header>
 
        <section className="relative overflow-hidden border-b border-border bg-background">
          <div className="hero-glow pointer-events-none absolute inset-0" />
