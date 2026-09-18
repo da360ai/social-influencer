@@ -370,7 +370,7 @@ export function WorkshopPage() {
              <div className="relative z-10 max-w-3xl lg:col-span-5 lg:pr-3">
                <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-3 py-2 text-[10px] font-extrabold uppercase text-primary sm:text-xs"><MapPin className="size-3.5" /> OFFLINE CREATOR  WORKSHOP</div>
                <h1 className="mt-5 max-w-3xl font-display text-5xl font-extrabold leading-[1.02] text-foreground sm:text-6xl lg:text-[3.8rem]">
-                Get ready to <span className="text-primary">Earn From Your Influence.</span>
+                Get ready to <span className="text-primary">Earn From Your Content.</span>
             </h1>
              <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground">
               Understand exactly how creators turn attention into income and build your first monetisation roadmap. <strong className="text-foreground">Real strategies. Real examples. Real opportunities.</strong>
