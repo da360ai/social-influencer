@@ -682,7 +682,7 @@ export function WorkshopPage() {
           <Brand />
           <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
           <div className="ml-auto hidden items-center gap-6 md:flex">
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">26th September</span><span className="block text-muted-foreground">11AM Onwards</span></span></span>
+            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">26th September</span><span className="block text-muted-foreground">11 AM Onwards</span></span></span>
             <span className="flex items-center gap-2 text-[11px] leading-tight"><MapPin className="size-5 text-primary" /><span><span className="block font-bold text-foreground">JP Nagar,</span><span className="block text-muted-foreground">Bangalore</span></span></span>
             <span className="flex items-center gap-2 text-[11px] leading-tight"><Users className="size-5 text-primary" /><span><span className="block font-bold text-foreground">Limited Seats</span><span className="block text-muted-foreground">Only 5 spots</span></span></span>
           </div>
