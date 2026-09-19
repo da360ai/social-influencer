@@ -244,10 +244,6 @@
   animation-name: attendee-marquee-reverse;
 }
 
-.attendee-marquee:hover .attendee-marquee-track {
-  animation-play-state: paused;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
