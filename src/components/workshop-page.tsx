@@ -92,6 +92,16 @@ const outcomes = [
   { label: "Building Business", text: "Build income streams beyond sponsorships", icon: BriefcaseBusiness },
 ];
 
+const attendeeOrganizations = [
+  { mark: "TCS", name: "Tata Consultancy Services", type: "Company" },
+  { mark: "WIPRO", name: "Wipro", type: "Company" },
+  { mark: "cashfree", name: "Cashfree Payments", type: "Company" },
+  { mark: "PU", name: "Presidency University", type: "College" },
+  { mark: "MU", name: "Mumbai University", type: "College" },
+  { mark: "BNMIT", name: "BNM Institute of Technology", type: "College" },
+  { mark: "PWS", name: "Prarthana World School", type: "College" },
+];
+
 const testimonials = [
   {
     name: "Khushboo",
@@ -328,6 +338,41 @@ function SectionHeading({ eyebrow, title, copy, eyebrowClassName = "text-xs", ti
   );
 }
 
+function PreviousAttendees() {
+  return (
+    <section aria-labelledby="previous-attendees-heading" className="border-b border-border bg-card py-8 sm:py-10">
+      <div className="mx-auto grid max-w-7xl items-center gap-7 px-4 sm:px-6 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-10">
+        <div>
+          <span className="text-xs font-extrabold uppercase text-primary">From leading institutions</span>
+          <h2 id="previous-attendees-heading" className="mt-2 font-display text-2xl font-extrabold text-foreground sm:text-3xl">
+            Previous Attendees
+          </h2>
+        </div>
+
+        <div className="attendee-marquee" aria-label="Organizations represented by previous attendees">
+          <div className="attendee-marquee-track">
+            {[0, 1].map((groupIndex) => (
+              <div key={groupIndex} className="flex shrink-0 items-stretch gap-3 pr-3" aria-hidden={groupIndex === 1}>
+                {attendeeOrganizations.map(({ mark, name, type }) => (
+                  <div key={`${groupIndex}-${name}`} className="flex min-h-20 w-52 shrink-0 items-center gap-3 rounded-lg border border-border bg-background px-4 py-3 shadow-sm">
+                    <span className="grid size-11 shrink-0 place-items-center rounded-md bg-foreground px-1 text-center font-display text-[11px] font-extrabold leading-tight text-background">
+                      {mark}
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-[9px] font-extrabold uppercase text-primary">{type}</span>
+                      <span className="mt-0.5 block text-sm font-bold leading-tight text-foreground">{name}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function WorkshopPage() {
   const venueAddress = "Digital Academy 360, 46/A, 1st Main Rd, opposite Mini Forest, Sarakki Industrial Layout, 3rd Phase, J. P. Nagar, Bangalore, Karnataka 560078";
   const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(venueAddress)}&output=embed`;
@@ -391,6 +436,8 @@ export function WorkshopPage() {
              </div>
         </div>
       </section>
+
+       <PreviousAttendees />
 
       <section className="border-b border-border bg-surface py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
