@@ -375,14 +375,14 @@ export function WorkshopPage() {
               A quick walkthrough from your mentor on what this workshop covers and who it&apos;s for.
             </p>
           </div>
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-[20px] border border-border bg-foreground shadow-glow">
+          <div className="mx-auto max-w-md overflow-hidden rounded-[20px] border border-border bg-foreground shadow-glow">
             <video
-              src={testimonialVideo5.url}
-              poster={testimonialThumb5}
+              src="/media/watch-intro.mp4"
+              poster="/media/watch-intro-poster.jpg"
               controls
               playsInline
               preload="metadata"
-              className="aspect-video w-full object-cover"
+              className="aspect-[9/16] w-full object-cover"
             >
               Your browser does not support the video tag.
             </video>
