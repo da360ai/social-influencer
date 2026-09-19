@@ -356,24 +356,29 @@ function PreviousAttendees() {
           </h2>
         </div>
 
-        <div className="attendee-marquee" aria-label="Organizations represented by previous attendees">
-          <div className="attendee-marquee-track">
-            {[0, 1].map((groupIndex) => (
-              <div key={groupIndex} className="flex shrink-0 items-stretch gap-3 pr-3" aria-hidden={groupIndex === 1}>
-                {attendeeOrganizations.map(({ logo, name, type }) => (
-                  <div key={`${groupIndex}-${name}`} className="flex min-h-20 w-52 shrink-0 items-center gap-3 rounded-lg border border-border bg-background px-4 py-3 shadow-sm">
-                    <span className="grid h-12 w-16 shrink-0 place-items-center overflow-hidden rounded-md bg-card p-1.5">
-                      <img src={logo} alt={`${name} logo`} className="h-full w-full object-contain" loading={groupIndex === 0 ? "eager" : "lazy"} />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-[9px] font-extrabold uppercase text-primary">{type}</span>
-                      <span className="mt-0.5 block text-sm font-bold leading-tight text-foreground">{name}</span>
-                    </span>
+        <div className="flex min-w-0 flex-col gap-4">
+          {["Company", "College"].map((type, rowIndex) => (
+            <div key={type} className="attendee-marquee" aria-label={`${type} logos of previous attendees`}>
+              <div className="attendee-marquee-track" style={{ animationDuration: rowIndex === 0 ? "26s" : "32s" }}>
+                {[0, 1].map((groupIndex) => (
+                  <div key={groupIndex} className="flex shrink-0 items-center gap-10 pr-10 sm:gap-14 sm:pr-14" aria-hidden={groupIndex === 1}>
+                    {attendeeOrganizations
+                      .filter(({ type: orgType }) => orgType === type)
+                      .map(({ logo, name }) => (
+                        <img
+                          key={`${groupIndex}-${name}`}
+                          src={logo}
+                          alt={`${name} logo`}
+                          title={name}
+                          className="h-7 w-auto max-w-[130px] shrink-0 object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-9 sm:max-w-[160px]"
+                          loading={groupIndex === 0 ? "eager" : "lazy"}
+                        />
+                      ))}
                   </div>
                 ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
