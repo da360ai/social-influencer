@@ -1,5 +1,6 @@
 "use client";
 
+import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
@@ -8,9 +9,7 @@ import {
   BarChart3,
   BriefcaseBusiness,
   CalendarDays,
-  CheckCircle2,
   Clock3,
-  Download,
   Gift,
   Lightbulb,
   MapPin,
@@ -215,9 +214,9 @@ function BookingForm() {
   const [values, setValues] = useState<FormValues>({ name: "", email: "", phone: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [paying, setPaying] = useState(false);
-  const [confirmed, setConfirmed] = useState(false);
+  const navigate = useNavigate();
 
-  const workshopDate = useMemo(() => getNextSaturday(), [confirmed]);
+  const workshopDate = useMemo(() => getNextSaturday(), []);
   const formattedDate = workshopDate.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 
   function update(field: keyof FormValues, value: string) {
@@ -236,26 +235,8 @@ function BookingForm() {
     setPaying(true);
     window.setTimeout(() => {
       setPaying(false);
-      setConfirmed(true);
+      navigate({ to: "/thank-you" });
     }, 900);
-  }
-
-  function downloadInvite() {
-    const end = new Date(workshopDate.getTime() + 3 * 60 * 60 * 1000);
-    const format = (date: Date) => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-    const ics = [
-      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Digital Academy 360//Workshop//EN", "BEGIN:VEVENT",
-      `UID:${Date.now()}@digitalacademy360.com`, `DTSTAMP:${format(new Date())}`, `DTSTART:${format(workshopDate)}`,
-      `DTEND:${format(end)}`, "SUMMARY:Earn From Your Influence Workshop",
-      "DESCRIPTION:3-Hour Offline Influencer Income Mastery Workshop. Ticket: ₹79.",
-      "LOCATION:Digital Academy 360, JP Nagar, Bangalore", "END:VEVENT", "END:VCALENDAR",
-    ].join("\r\n");
-    const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "earn-from-your-influence-workshop.ics";
-    link.click();
-    URL.revokeObjectURL(url);
   }
 
   return (
@@ -304,27 +285,6 @@ function BookingForm() {
         </div>
       </div>
 
-      <Dialog open={confirmed} onOpenChange={setConfirmed}>
-        <DialogContent className="max-w-md border-primary/30 bg-card p-0 text-card-foreground shadow-glow">
-          <div className="border-b border-border bg-success/10 p-6 text-center">
-            <CheckCircle2 className="mx-auto size-12 text-success" />
-            <DialogHeader className="mt-3 text-center sm:text-center">
-              <DialogTitle className="font-display text-2xl">Your seat is confirmed!</DialogTitle>
-              <DialogDescription>We’ll send the ticket and venue directions to your email and WhatsApp.</DialogDescription>
-            </DialogHeader>
-          </div>
-          <div className="space-y-4 p-6 pt-2">
-            <div className="rounded-md border border-border bg-background/40 p-4 text-sm">
-              <p className="font-display text-lg font-extrabold text-foreground">Earn From Your Influence</p>
-              <p className="mt-3 text-muted-foreground">{values.name}</p>
-              <p className="mt-2 inline-flex items-center gap-2 text-muted-foreground"><CalendarDays className="size-4 text-primary" /> {formattedDate}, 10 AM–1 PM</p>
-              <p className="mt-2 inline-flex items-center gap-2 text-muted-foreground"><MapPin className="size-4 text-primary" /> JP Nagar, Bangalore</p>
-              <div className="mt-4 flex items-center justify-between border-t border-border pt-3"><span>Ticket amount</span><strong className="text-highlight">₹79 paid</strong></div>
-            </div>
-            <Button onClick={downloadInvite} className="h-11 w-full"><Download /> Add to calendar</Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }
