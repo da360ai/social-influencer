@@ -1,6 +1,7 @@
 "use client";
 
 import { useNavigate } from "@tanstack/react-router";
+import { captureUtmParams, submitLead } from "@/lib/lead-capture";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
