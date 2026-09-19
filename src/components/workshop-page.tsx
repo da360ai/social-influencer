@@ -265,6 +265,11 @@ function BookingForm() {
         whatsapp: `+91${values.phone}`,
       });
       setSucceeded(true);
+      try {
+        window.sessionStorage.setItem("workshop_payment", JSON.stringify({ id: "", amount: "₹79" }));
+      } catch {
+        // storage unavailable — the thank-you page falls back to the default amount
+      }
       window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
       window.setTimeout(() => {
         setPaying(false);

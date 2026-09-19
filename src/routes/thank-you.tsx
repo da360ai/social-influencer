@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CalendarDays, Check, Clock3, MapPin } from "lucide-react";
+import { CalendarDays, Check, Clock3, Hash, IndianRupee, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/thank-you")({
@@ -25,8 +26,28 @@ export const Route = createFileRoute("/thank-you")({
   component: ThankYouPage,
 });
 
+type PaymentInfo = { id: string; amount: string };
+
 function ThankYouPage() {
   const whatsappUrl = "https://api.whatsapp.com/send?text=Hi!%20I%20just%20registered%20for%20the%20Earn%20From%20Your%20Influence%20workshop.";
+  const [payment, setPayment] = useState<PaymentInfo | null>(null);
+
+  useEffect(() => {
+    // Razorpay payment pages can redirect back with ?razorpay_payment_id=...&amount=...
+    const params = new URLSearchParams(window.location.search);
+    const urlId = params.get("razorpay_payment_id") ?? params.get("payment_id") ?? "";
+    const urlAmount = params.get("amount") ?? "";
+    let stored: Partial<PaymentInfo> = {};
+    try {
+      stored = JSON.parse(window.sessionStorage.getItem("workshop_payment") ?? "{}") as Partial<PaymentInfo>;
+    } catch {
+      stored = {};
+    }
+    setPayment({
+      id: urlId || stored.id || "",
+      amount: urlAmount || stored.amount || "₹79",
+    });
+  }, []);
 
   return (
     <main className="min-h-screen bg-foreground px-4 py-10 text-background sm:py-20">
@@ -66,6 +87,24 @@ function ThankYouPage() {
                 Digital Academy 360, J. P. Nagar, Bengaluru 560078
               </dd>
             </div>
+            {payment && (
+              <>
+                <div className="flex items-center justify-between gap-4 py-3">
+                  <dt className="inline-flex items-center gap-2 text-sm text-background/60">
+                    <IndianRupee className="size-4" /> Amount paid
+                  </dt>
+                  <dd className="text-right text-sm font-bold text-primary sm:text-base">{payment.amount}</dd>
+                </div>
+                <div className="flex items-center justify-between gap-4 py-3">
+                  <dt className="inline-flex items-center gap-2 text-sm text-background/60">
+                    <Hash className="size-4" /> Payment ID
+                  </dt>
+                  <dd className="break-all text-right font-mono text-xs font-bold sm:text-sm">
+                    {payment.id || "Pending confirmation"}
+                  </dd>
+                </div>
+              </>
+            )}
           </dl>
           <p className="border-t border-background/10 pt-4 text-sm font-bold">
             Please arrive a few minutes before the scheduled start time.
