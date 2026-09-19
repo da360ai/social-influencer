@@ -95,15 +95,8 @@ function ThankYouPage() {
                   </dt>
                   <dd className="text-right text-sm font-bold text-primary sm:text-base">{payment.amount}</dd>
                 </div>
-                <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="inline-flex items-center gap-2 text-sm text-background/60">
-                    <Hash className="size-4" /> Payment ID
-                  </dt>
-                  <dd className="break-all text-right font-mono text-xs font-bold sm:text-sm">
-                    {payment.id || "Pending confirmation"}
-                  </dd>
-                </div>
               </>
+
             )}
           </dl>
           <p className="border-t border-background/10 pt-4 text-sm font-bold">
