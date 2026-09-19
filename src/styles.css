@@ -258,6 +258,7 @@
   }
 
   .attendee-marquee-track {
-    animation: none;
+    animation-duration: 60s !important;
+    animation-iteration-count: infinite !important;
   }
 }
