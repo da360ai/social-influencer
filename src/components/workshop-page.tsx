@@ -212,7 +212,13 @@ function BookingForm() {
   const [values, setValues] = useState<FormValues>({ name: "", email: "", phone: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [paying, setPaying] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [succeeded, setSucceeded] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    captureUtmParams();
+  }, []);
 
   const workshopDate = useMemo(() => getNextSaturday(), []);
   const formattedDate = workshopDate.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
