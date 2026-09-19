@@ -38,7 +38,11 @@ import curriculumInfluence from "@/assets/curriculum-influence.jpg";
 import curriculumIncome from "@/assets/curriculum-income.jpg";
 import curriculumBrand from "@/assets/curriculum-brand.jpg";
 import curriculumRoadmap from "@/assets/curriculum-roadmap.jpg";
-import razorpaySecurePayment from "@/assets/razorpay-secure-payment.png";
+import razorpayLogo from "@/assets/payments/razorpay.svg";
+import upiLogo from "@/assets/payments/upi.svg";
+import visaLogo from "@/assets/payments/visa.svg";
+import mastercardLogo from "@/assets/payments/mastercard.svg";
+import rupayLogo from "@/assets/payments/rupay.svg";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
@@ -337,8 +341,12 @@ function BookingForm() {
             </div>
           )}
         </form>
-        <div className="mt-5 flex justify-center border-t border-border pt-4">
-          <img src={razorpaySecurePayment} alt="Razorpay, 100% secure. UPI, VISA, Mastercard and RuPay accepted." className="h-auto w-[193px] max-w-full object-contain" />
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 border-t border-border pt-4" aria-label="Payment methods accepted">
+          <img src={razorpayLogo} alt="Razorpay" className="size-7 object-contain" />
+          <img src={upiLogo} alt="UPI" className="h-6 w-auto max-w-14 object-contain" />
+          <img src={visaLogo} alt="Visa" className="h-6 w-auto object-contain" />
+          <img src={mastercardLogo} alt="Mastercard" className="size-7 object-contain" />
+          <img src={rupayLogo} alt="RuPay" className="h-6 w-auto max-w-16 object-contain" />
         </div>
       </div>
 
