@@ -377,8 +377,8 @@ export function WorkshopPage() {
           </div>
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[20px] border border-border bg-foreground shadow-glow">
             <video
-              src={testimonialVideo5.url}
-              poster={testimonialThumb5}
+              src="/media/watch-intro.mp4"
+              poster="/media/watch-intro-poster.jpg"
               controls
               playsInline
               preload="metadata"
