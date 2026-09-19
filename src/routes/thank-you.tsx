@@ -50,47 +50,47 @@ function ThankYouPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-foreground px-4 py-10 text-background sm:py-20">
-      <div className="mx-auto max-w-2xl rounded-2xl border border-background/10 bg-background/5 p-6 sm:p-12">
+    <main className="min-h-screen bg-background px-4 py-10 text-foreground sm:py-20">
+      <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-6 shadow-glow sm:p-12">
         <div className="grid size-16 place-items-center rounded-full bg-primary shadow-action">
           <Check className="size-8 text-primary-foreground" strokeWidth={3} />
         </div>
         <p className="mt-6 text-xs font-extrabold uppercase tracking-widest text-primary">Payment received</p>
-        <h1 className="mt-3 font-display text-3xl font-extrabold italic leading-tight sm:text-4xl">
+        <h1 className="mt-3 font-display text-3xl font-extrabold italic leading-tight text-foreground sm:text-4xl">
           Your registration has been confirmed.
         </h1>
-        <p className="mt-5 max-w-xl text-sm leading-6 text-background/80 sm:text-base">
+        <p className="mt-5 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
           This is a reminder that you are scheduled to attend the Earn From Your Influence workshop on{" "}
-          <span className="font-bold uppercase">26th September</span> at <span className="font-bold">11:00 AM</span> at
-          Digital Academy 360, JP Nagar.
+          <span className="font-bold uppercase text-foreground">26th September</span> at{" "}
+          <span className="font-bold text-foreground">11:00 AM</span> at Digital Academy 360, JP Nagar.
         </p>
 
-        <div className="mt-8 rounded-xl border border-background/10 bg-background/5 p-5 sm:p-6">
-          <dl className="divide-y divide-background/10">
+        <div className="mt-8 rounded-xl border border-border bg-secondary p-5 sm:p-6">
+          <dl className="divide-y divide-border">
             <div className="flex items-center justify-between gap-4 py-3">
-              <dt className="inline-flex items-center gap-2 text-sm text-background/60">
+              <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <CalendarDays className="size-4" /> Date
               </dt>
-              <dd className="text-right text-sm font-bold sm:text-base">Saturday, 26TH SEPTEMBER 2026</dd>
+              <dd className="text-right text-sm font-bold text-foreground sm:text-base">Saturday, 26TH SEPTEMBER 2026</dd>
             </div>
             <div className="flex items-center justify-between gap-4 py-3">
-              <dt className="inline-flex items-center gap-2 text-sm text-background/60">
+              <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock3 className="size-4" /> Time
               </dt>
-              <dd className="text-right text-sm font-bold sm:text-base">11:00 AM Onwards</dd>
+              <dd className="text-right text-sm font-bold text-foreground sm:text-base">11:00 AM Onwards</dd>
             </div>
             <div className="flex items-center justify-between gap-4 py-3">
-              <dt className="inline-flex items-center gap-2 text-sm text-background/60">
+              <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="size-4" /> Venue
               </dt>
-              <dd className="text-right text-sm font-bold sm:text-base">
+              <dd className="text-right text-sm font-bold text-foreground sm:text-base">
                 Digital Academy 360, J. P. Nagar, Bengaluru 560078
               </dd>
             </div>
             {payment && (
               <>
                 <div className="flex items-center justify-between gap-4 py-3">
-                  <dt className="inline-flex items-center gap-2 text-sm text-background/60">
+                  <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                     <IndianRupee className="size-4" /> Amount paid
                   </dt>
                   <dd className="text-right text-sm font-bold text-primary sm:text-base">{payment.amount}</dd>
@@ -99,14 +99,14 @@ function ThankYouPage() {
 
             )}
           </dl>
-          <p className="border-t border-background/10 pt-4 text-sm font-bold">
+          <p className="border-t border-border pt-4 text-sm font-bold text-foreground">
             Please arrive a few minutes before the scheduled start time.
           </p>
         </div>
 
         <div className="mt-8">
-          <h2 className="text-lg font-extrabold">Please note the following before attending:</h2>
-          <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-6 text-background/80 sm:text-base">
+          <h2 className="text-lg font-extrabold text-foreground">Please note the following before attending:</h2>
+          <ul className="mt-4 list-disc space-y-3 pl-5 text-sm leading-6 text-muted-foreground sm:text-base">
             <li>Bring your laptop, as the session includes live, hands-on activities.</li>
             <li>
               You will learn how to position your niche, create scroll-stopping content, and land your first brand
@@ -125,7 +125,7 @@ function ThankYouPage() {
               Message us on WhatsApp
             </a>
           </Button>
-          <Link to="/" className="inline-flex items-center gap-2 text-sm text-background/70 hover:text-background">
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
             ← Back to home
           </Link>
         </div>
