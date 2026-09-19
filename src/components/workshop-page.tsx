@@ -39,6 +39,7 @@ import curriculumInfluence from "@/assets/curriculum-influence.jpg";
 import curriculumIncome from "@/assets/curriculum-income.jpg";
 import curriculumBrand from "@/assets/curriculum-brand.jpg";
 import curriculumRoadmap from "@/assets/curriculum-roadmap.jpg";
+import razorpaySecurePayment from "@/assets/razorpay-secure-payment.png";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
@@ -337,10 +338,8 @@ function BookingForm() {
             </div>
           )}
         </form>
-        <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-border pt-4 text-[10px] text-muted-foreground sm:text-xs">
-          <span className="rounded-full bg-foreground px-3 py-1 font-bold text-background">Razorpay</span>
-          <span className="inline-flex items-center gap-1"><ShieldCheck className="size-3.5 text-success" /> 100% Secure</span>
-          <span>UPI · VISA · Mastercard · RuPay</span>
+        <div className="mt-5 flex justify-center border-t border-border pt-4">
+          <img src={razorpaySecurePayment} alt="Razorpay, 100% secure. UPI, VISA, Mastercard and RuPay accepted." className="h-auto w-[193px] max-w-full object-contain" />
         </div>
       </div>
 
