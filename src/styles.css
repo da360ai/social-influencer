@@ -224,7 +224,9 @@
 .attendee-marquee-track {
   display: flex;
   width: max-content;
-  animation: attendee-marquee 28s linear infinite;
+  transform: translate3d(0, 0, 0);
+  animation: attendee-marquee 30s linear infinite;
+  backface-visibility: hidden;
   will-change: transform;
 }
 

@@ -56,6 +56,13 @@ import testimonialThumb2 from "@/assets/testimonial-thumb-2.jpg";
 import testimonialThumb3 from "@/assets/testimonial-thumb-3.jpg";
 import testimonialThumb4 from "@/assets/testimonial-thumb-4.jpg";
 import testimonialThumb5 from "@/assets/testimonial-thumb-5.jpg";
+import tcsLogo from "@/assets/attendees/tcs.svg.asset.json";
+import wiproLogo from "@/assets/attendees/wipro.svg.asset.json";
+import cashfreeLogo from "@/assets/attendees/cashfree.svg.asset.json";
+import presidencyLogo from "@/assets/attendees/presidency.svg.asset.json";
+import mumbaiUniversityLogo from "@/assets/attendees/mumbai-university.png.asset.json";
+import bnmitLogo from "@/assets/attendees/bnmit.png.asset.json";
+import prarthanaLogo from "@/assets/attendees/prarthana.png.asset.json";
 
 type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -93,13 +100,13 @@ const outcomes = [
 ];
 
 const attendeeOrganizations = [
-  { mark: "TCS", name: "Tata Consultancy Services", type: "Company" },
-  { mark: "WIPRO", name: "Wipro", type: "Company" },
-  { mark: "cashfree", name: "Cashfree Payments", type: "Company" },
-  { mark: "PU", name: "Presidency University", type: "College" },
-  { mark: "MU", name: "Mumbai University", type: "College" },
-  { mark: "BNMIT", name: "BNM Institute of Technology", type: "College" },
-  { mark: "PWS", name: "Prarthana World School", type: "College" },
+  { logo: tcsLogo.url, name: "Tata Consultancy Services", type: "Company" },
+  { logo: wiproLogo.url, name: "Wipro", type: "Company" },
+  { logo: cashfreeLogo.url, name: "Cashfree Payments", type: "Company" },
+  { logo: presidencyLogo.url, name: "Presidency University", type: "College" },
+  { logo: mumbaiUniversityLogo.url, name: "Mumbai University", type: "College" },
+  { logo: bnmitLogo.url, name: "BNM Institute of Technology", type: "College" },
+  { logo: prarthanaLogo.url, name: "Prarthana World School", type: "College" },
 ];
 
 const testimonials = [
@@ -353,10 +360,10 @@ function PreviousAttendees() {
           <div className="attendee-marquee-track">
             {[0, 1].map((groupIndex) => (
               <div key={groupIndex} className="flex shrink-0 items-stretch gap-3 pr-3" aria-hidden={groupIndex === 1}>
-                {attendeeOrganizations.map(({ mark, name, type }) => (
+                {attendeeOrganizations.map(({ logo, name, type }) => (
                   <div key={`${groupIndex}-${name}`} className="flex min-h-20 w-52 shrink-0 items-center gap-3 rounded-lg border border-border bg-background px-4 py-3 shadow-sm">
-                    <span className="grid size-11 shrink-0 place-items-center rounded-md bg-foreground px-1 text-center font-display text-[11px] font-extrabold leading-tight text-background">
-                      {mark}
+                    <span className="grid h-12 w-16 shrink-0 place-items-center overflow-hidden rounded-md bg-card p-1.5">
+                      <img src={logo} alt={`${name} logo`} className="h-full w-full object-contain" loading={groupIndex === 0 ? "eager" : "lazy"} />
                     </span>
                     <span className="min-w-0">
                       <span className="block text-[9px] font-extrabold uppercase text-primary">{type}</span>
