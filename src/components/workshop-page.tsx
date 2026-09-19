@@ -346,6 +346,11 @@ function SectionHeading({ eyebrow, title, copy, eyebrowClassName = "text-xs", ti
 }
 
 function PreviousAttendees() {
+  const attendeeRows = [
+    { type: "Company", repeats: 4, duration: "26s" },
+    { type: "College", repeats: 3, duration: "32s" },
+  ];
+
   return (
     <section aria-labelledby="previous-attendees-heading" className="border-b border-border bg-card py-8 sm:py-10">
       <div className="mx-auto grid max-w-7xl items-center gap-7 px-4 sm:px-6 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-10">
@@ -357,26 +362,28 @@ function PreviousAttendees() {
         </div>
 
         <div className="flex min-w-0 flex-col gap-4">
-          {["Company", "College"].map((type, rowIndex) => (
+          {attendeeRows.map(({ type, repeats, duration }, rowIndex) => (
             <div key={type} className="attendee-marquee" aria-label={`${type} logos of previous attendees`}>
               <div
                 className={`attendee-marquee-track${rowIndex === 1 ? " attendee-marquee-track--reverse" : ""}`}
-                style={{ animationDuration: rowIndex === 0 ? "26s" : "32s" }}
+                style={{ animationDuration: duration }}
               >
                 {[0, 1].map((groupIndex) => (
                   <div key={groupIndex} className="flex shrink-0 items-center gap-10 pr-10 sm:gap-14 sm:pr-14" aria-hidden={groupIndex === 1}>
-                    {attendeeOrganizations
-                      .filter(({ type: orgType }) => orgType === type)
-                      .map(({ logo, name }) => (
+                    {Array.from({ length: repeats }).flatMap((_, repeatIndex) =>
+                      attendeeOrganizations
+                        .filter(({ type: orgType }) => orgType === type)
+                        .map(({ logo, name }) => (
                         <img
-                          key={`${groupIndex}-${name}`}
+                          key={`${groupIndex}-${repeatIndex}-${name}`}
                           src={logo}
-                          alt={`${name} logo`}
+                          alt={groupIndex === 0 && repeatIndex === 0 ? `${name} logo` : ""}
                           title={name}
                           className="h-7 w-auto max-w-[130px] shrink-0 object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-9 sm:max-w-[160px]"
                           loading={groupIndex === 0 ? "eager" : "lazy"}
                         />
-                      ))}
+                        )),
+                    )}
                   </div>
                 ))}
               </div>
