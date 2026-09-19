@@ -8,3 +8,4 @@
 - [x] Verify the redesigned page at desktop and mobile sizes
 - [x] Open each selected testimonial video in a focused pop-out player
 - [x] Add a previous-attendees company and college carousel below the hero
+- [x] Replace attendee initials with actual logos and make the marquee loop seamlessly
