@@ -287,27 +287,6 @@ function BookingForm() {
         </div>
       </div>
 
-      <Dialog open={confirmed} onOpenChange={setConfirmed}>
-        <DialogContent className="max-w-md border-primary/30 bg-card p-0 text-card-foreground shadow-glow">
-          <div className="border-b border-border bg-success/10 p-6 text-center">
-            <CheckCircle2 className="mx-auto size-12 text-success" />
-            <DialogHeader className="mt-3 text-center sm:text-center">
-              <DialogTitle className="font-display text-2xl">Your seat is confirmed!</DialogTitle>
-              <DialogDescription>We’ll send the ticket and venue directions to your email and WhatsApp.</DialogDescription>
-            </DialogHeader>
-          </div>
-          <div className="space-y-4 p-6 pt-2">
-            <div className="rounded-md border border-border bg-background/40 p-4 text-sm">
-              <p className="font-display text-lg font-extrabold text-foreground">Earn From Your Influence</p>
-              <p className="mt-3 text-muted-foreground">{values.name}</p>
-              <p className="mt-2 inline-flex items-center gap-2 text-muted-foreground"><CalendarDays className="size-4 text-primary" /> {formattedDate}, 10 AM–1 PM</p>
-              <p className="mt-2 inline-flex items-center gap-2 text-muted-foreground"><MapPin className="size-4 text-primary" /> JP Nagar, Bangalore</p>
-              <div className="mt-4 flex items-center justify-between border-t border-border pt-3"><span>Ticket amount</span><strong className="text-highlight">₹79 paid</strong></div>
-            </div>
-            <Button onClick={downloadInvite} className="h-11 w-full"><Download /> Add to calendar</Button>
-          </div>
-        </DialogContent>
-      </Dialog>
     </>
   );
 }
