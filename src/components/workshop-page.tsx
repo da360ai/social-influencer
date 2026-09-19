@@ -216,9 +216,9 @@ function BookingForm() {
   const [values, setValues] = useState<FormValues>({ name: "", email: "", phone: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [paying, setPaying] = useState(false);
-  const [confirmed, setConfirmed] = useState(false);
+  const navigate = useNavigate();
 
-  const workshopDate = useMemo(() => getNextSaturday(), [confirmed]);
+  const workshopDate = useMemo(() => getNextSaturday(), []);
   const formattedDate = workshopDate.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 
   function update(field: keyof FormValues, value: string) {
@@ -237,26 +237,8 @@ function BookingForm() {
     setPaying(true);
     window.setTimeout(() => {
       setPaying(false);
-      setConfirmed(true);
+      navigate({ to: "/thank-you" });
     }, 900);
-  }
-
-  function downloadInvite() {
-    const end = new Date(workshopDate.getTime() + 3 * 60 * 60 * 1000);
-    const format = (date: Date) => date.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
-    const ics = [
-      "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Digital Academy 360//Workshop//EN", "BEGIN:VEVENT",
-      `UID:${Date.now()}@digitalacademy360.com`, `DTSTAMP:${format(new Date())}`, `DTSTART:${format(workshopDate)}`,
-      `DTEND:${format(end)}`, "SUMMARY:Earn From Your Influence Workshop",
-      "DESCRIPTION:3-Hour Offline Influencer Income Mastery Workshop. Ticket: ₹79.",
-      "LOCATION:Digital Academy 360, JP Nagar, Bangalore", "END:VEVENT", "END:VCALENDAR",
-    ].join("\r\n");
-    const url = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "earn-from-your-influence-workshop.ics";
-    link.click();
-    URL.revokeObjectURL(url);
   }
 
   return (
