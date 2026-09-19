@@ -652,7 +652,7 @@ export function WorkshopPage() {
 
       <section className="relative grid-bg py-20 text-center sm:py-28">
         <div className="hero-glow pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">ONLY 15 SEATS LEFT</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">{"\n"}</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Book your seat for ₹79 <ArrowRight /></Button><Price /></div></div>
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">ONLY 15 SEATS LEFT</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">{"\n"}</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button asChild size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90"><a href={RAZORPAY_URL} target="_blank" rel="noreferrer">Book your seat for ₹79 <ArrowRight /></a></Button><Price /></div></div>
       </section>
 
       <footer ref={footerRef} className="border-t border-border bg-card py-8">
