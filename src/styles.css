@@ -214,6 +214,16 @@
   }
 }
 
+@keyframes attendee-marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 .attendee-marquee {
   position: relative;
   min-width: 0;
@@ -228,6 +238,10 @@
   animation: attendee-marquee 30s linear infinite;
   backface-visibility: hidden;
   will-change: transform;
+}
+
+.attendee-marquee-track--reverse {
+  animation-name: attendee-marquee-reverse;
 }
 
 .attendee-marquee:hover .attendee-marquee-track {

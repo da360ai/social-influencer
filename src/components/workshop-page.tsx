@@ -359,7 +359,10 @@ function PreviousAttendees() {
         <div className="flex min-w-0 flex-col gap-4">
           {["Company", "College"].map((type, rowIndex) => (
             <div key={type} className="attendee-marquee" aria-label={`${type} logos of previous attendees`}>
-              <div className="attendee-marquee-track" style={{ animationDuration: rowIndex === 0 ? "26s" : "32s" }}>
+              <div
+                className={`attendee-marquee-track${rowIndex === 1 ? " attendee-marquee-track--reverse" : ""}`}
+                style={{ animationDuration: rowIndex === 0 ? "26s" : "32s" }}
+              >
                 {[0, 1].map((groupIndex) => (
                   <div key={groupIndex} className="flex shrink-0 items-center gap-10 pr-10 sm:gap-14 sm:pr-14" aria-hidden={groupIndex === 1}>
                     {attendeeOrganizations
