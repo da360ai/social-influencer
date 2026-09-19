@@ -1,6 +1,7 @@
 "use client";
 
 import { useNavigate } from "@tanstack/react-router";
+import { captureUtmParams, submitLead } from "@/lib/lead-capture";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
@@ -212,7 +213,13 @@ function BookingForm() {
   const [values, setValues] = useState<FormValues>({ name: "", email: "", phone: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [paying, setPaying] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [succeeded, setSucceeded] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    captureUtmParams();
+  }, []);
 
   const workshopDate = useMemo(() => getNextSaturday(), []);
   const formattedDate = workshopDate.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
@@ -222,20 +229,35 @@ function BookingForm() {
     setErrors((current) => ({ ...current, [field]: undefined }));
   }
 
-  function submit(event: FormEvent) {
+  async function submit(event: FormEvent) {
     event.preventDefault();
+    if (paying) return;
     const next: FormErrors = {};
     if (values.name.trim().length < 2) next.name = "Enter your full name";
     if (!/^\S+@\S+\.\S+$/.test(values.email)) next.email = "Enter a valid email address";
     if (!/^[6-9]\d{9}$/.test(values.phone)) next.phone = "Enter a valid 10-digit mobile number";
     setErrors(next);
+    setSubmitError(null);
     if (Object.keys(next).length) return;
+
     setPaying(true);
-    window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
-    window.setTimeout(() => {
+    try {
+      await submitLead({
+        full_name: values.name.trim(),
+        email: values.email.trim(),
+        whatsapp: `+91${values.phone}`,
+      });
+      setSucceeded(true);
+      window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
+      window.setTimeout(() => {
+        setPaying(false);
+        navigate({ to: "/thank-you" });
+      }, 900);
+    } catch (error) {
+      console.error("Lead submission failed", error);
+      setSubmitError("Something went wrong. Please try again.");
       setPaying(false);
-      navigate({ to: "/thank-you" });
-    }, 900);
+    }
   }
 
   return (
@@ -272,10 +294,18 @@ function BookingForm() {
           </div>
           <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
             <Button type="submit" disabled={paying} className="h-12 flex-1 bg-primary px-5 font-bold text-primary-foreground shadow-action hover:bg-primary/90">
-              {paying ? "Opening secure checkout…" : "Book Your Seat Now"} <ArrowRight />
+              {paying ? "Processing…" : "Book Your Seat Now"} <ArrowRight />
             </Button>
             <Price />
           </div>
+          {submitError && (
+            <p role="alert" className="text-xs font-bold text-destructive">{submitError}</p>
+          )}
+          {succeeded && !submitError && (
+            <div className="rounded-md border border-success/40 bg-success/10 p-3 text-xs font-bold text-success">
+              You're almost there! Your details have been received.
+            </div>
+          )}
         </form>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-border pt-4 text-[10px] text-muted-foreground sm:text-xs">
           <span className="rounded-full bg-foreground px-3 py-1 font-bold text-background">Razorpay</span>
