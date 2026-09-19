@@ -714,7 +714,7 @@ export function WorkshopPage() {
       <section className="border-y border-border bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="Tangible takeaways" title="Six assets you’ll leave with" />
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{takeaways.map((item, index) => <div key={item} className="flex min-h-28 items-start gap-4 rounded-md border border-border bg-card p-5"><span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-xs font-extrabold text-primary">{index + 1}</span><p className="pt-1 font-display font-bold">{item}</p></div>)}</div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{takeaways.map((item, index) => <div key={item} className="flex items-center gap-4 rounded-md border border-border bg-card px-5 py-4"><span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary/10 text-xs font-extrabold text-primary">{index + 1}</span><p className="font-display font-bold">{item}</p></div>)}</div>
         </div>
       </section>
 
