@@ -229,20 +229,35 @@ function BookingForm() {
     setErrors((current) => ({ ...current, [field]: undefined }));
   }
 
-  function submit(event: FormEvent) {
+  async function submit(event: FormEvent) {
     event.preventDefault();
+    if (paying) return;
     const next: FormErrors = {};
     if (values.name.trim().length < 2) next.name = "Enter your full name";
     if (!/^\S+@\S+\.\S+$/.test(values.email)) next.email = "Enter a valid email address";
     if (!/^[6-9]\d{9}$/.test(values.phone)) next.phone = "Enter a valid 10-digit mobile number";
     setErrors(next);
+    setSubmitError(null);
     if (Object.keys(next).length) return;
+
     setPaying(true);
-    window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
-    window.setTimeout(() => {
+    try {
+      await submitLead({
+        full_name: values.name.trim(),
+        email: values.email.trim(),
+        whatsapp: `+91${values.phone}`,
+      });
+      setSucceeded(true);
+      window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
+      window.setTimeout(() => {
+        setPaying(false);
+        navigate({ to: "/thank-you" });
+      }, 900);
+    } catch (error) {
+      console.error("Lead submission failed", error);
+      setSubmitError("Something went wrong. Please try again.");
       setPaying(false);
-      navigate({ to: "/thank-you" });
-    }, 900);
+    }
   }
 
   return (
