@@ -193,9 +193,7 @@ function Brand() {
   );
 }
 
-function scrollToForm() {
-  document.querySelector("#register")?.scrollIntoView({ behavior: "smooth", block: "center" });
-}
+const RAZORPAY_URL = "https://rzp.io/rzp/social-content-creator";
 
 function MetaPill({ children }: { children: React.ReactNode }) {
   return <span className="inline-flex min-h-14 items-center gap-2 border-r border-border px-4 py-2 text-[10px] font-extrabold uppercase text-foreground first:pl-0 last:border-r-0 sm:text-[11px]">{children}</span>;
@@ -233,6 +231,7 @@ function BookingForm() {
     setErrors(next);
     if (Object.keys(next).length) return;
     setPaying(true);
+    window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
     window.setTimeout(() => {
       setPaying(false);
       navigate({ to: "/thank-you" });
@@ -321,8 +320,8 @@ export function WorkshopPage() {
         <div className="mx-auto flex h-[72px] max-w-7xl items-center gap-4 px-4 sm:h-[90px] sm:px-6">
           <Brand />
           <div className="ml-auto hidden items-center gap-3 sm:flex sm:pr-8 lg:pr-24"></div>
-          <Button onClick={scrollToForm} className="ml-auto h-11 bg-primary px-4 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90 sm:ml-0 sm:px-6">
-            Book for ₹79 <ArrowRight />
+          <Button asChild className="ml-auto h-11 bg-primary px-4 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90 sm:ml-0 sm:px-6">
+            <a href={RAZORPAY_URL} target="_blank" rel="noreferrer">Book for ₹79 <ArrowRight /></a>
           </Button>
         </div>
       </header>
@@ -345,7 +344,7 @@ export function WorkshopPage() {
               <MetaPill><MapPin className="size-3.5 text-highlight" /> Offline workshop</MetaPill>
             </div>
              <div className="mt-6 flex flex-wrap items-center gap-5">
-              <Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-6 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Claim your spot <ArrowRight /></Button>
+              <Button asChild size="lg" className="h-12 bg-primary px-6 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90"><a href={RAZORPAY_URL} target="_blank" rel="noreferrer">Claim your spot <ArrowRight /></a></Button>
               <Price />
             </div>
             <p className="mt-4 flex items-center gap-2 text-xs font-semibold text-foreground"><span className="tracking-normal text-highlight">★★★★★</span> Rated 4.8/5 by 3,730+ learners</p>
@@ -653,7 +652,7 @@ export function WorkshopPage() {
 
       <section className="relative grid-bg py-20 text-center sm:py-28">
         <div className="hero-glow pointer-events-none absolute inset-0" />
-        <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">ONLY 15 SEATS LEFT</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">{"\n"}</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button onClick={scrollToForm} size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90">Book your seat for ₹79 <ArrowRight /></Button><Price /></div></div>
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6"><span className="text-xs font-extrabold uppercase text-primary">ONLY 15 SEATS LEFT</span><h2 className="mt-4 font-display text-4xl font-extrabold sm:text-5xl">Your influence can become an income skill.</h2><p className="mx-auto mt-5 max-w-xl leading-7 text-muted-foreground">{"\n"}</p><div className="mt-8 flex flex-wrap items-center justify-center gap-5"><Button asChild size="lg" className="h-12 bg-primary px-7 font-extrabold text-primary-foreground shadow-action hover:bg-primary/90"><a href={RAZORPAY_URL} target="_blank" rel="noreferrer">Book your seat for ₹79 <ArrowRight /></a></Button><Price /></div></div>
       </section>
 
       <footer ref={footerRef} className="border-t border-border bg-card py-8">
@@ -676,11 +675,11 @@ export function WorkshopPage() {
             <span className="flex items-center gap-2 text-[11px] leading-tight"><MapPin className="size-5 text-primary" /><span><span className="block font-bold text-foreground">JP Nagar,</span><span className="block text-muted-foreground">Bangalore</span></span></span>
             <span className="flex items-center gap-2 text-[11px] leading-tight"><Users className="size-5 text-primary" /><span><span className="block font-bold text-foreground">Limited Seats</span><span className="block text-muted-foreground">Only 5 spots</span></span></span>
           </div>
-          <Button onClick={scrollToForm} size="sm" className="ml-auto h-10 rounded-full bg-primary px-5 font-extrabold text-primary-foreground hover:bg-primary/90 md:ml-0">Book for ₹79 <ArrowRight /></Button>
+          <Button asChild size="sm" className="ml-auto h-10 rounded-full bg-primary px-5 font-extrabold text-primary-foreground hover:bg-primary/90 md:ml-0"><a href={RAZORPAY_URL} target="_blank" rel="noreferrer">Book for ₹79 <ArrowRight /></a></Button>
         </div>
       </header>}
 
-      <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl sm:hidden"><div><p className="text-[10px] font-bold uppercase text-muted-foreground">3-hour workshop</p><Price /></div><Button onClick={scrollToForm} className="bg-primary font-extrabold text-primary-foreground hover:bg-primary/90">Book now <ArrowRight /></Button></div>
+<div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-between gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur-xl sm:hidden"><div><p className="text-[10px] font-bold uppercase text-muted-foreground">3-hour workshop</p><Price /></div><Button asChild className="bg-primary font-extrabold text-primary-foreground hover:bg-primary/90"><a href={RAZORPAY_URL} target="_blank" rel="noreferrer">Book now <ArrowRight /></a></Button></div>
     </main>
   );
 }
