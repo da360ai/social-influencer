@@ -193,9 +193,7 @@ function Brand() {
   );
 }
 
-function scrollToForm() {
-  document.querySelector("#register")?.scrollIntoView({ behavior: "smooth", block: "center" });
-}
+const RAZORPAY_URL = "https://rzp.io/rzp/social-content-creator";
 
 function MetaPill({ children }: { children: React.ReactNode }) {
   return <span className="inline-flex min-h-14 items-center gap-2 border-r border-border px-4 py-2 text-[10px] font-extrabold uppercase text-foreground first:pl-0 last:border-r-0 sm:text-[11px]">{children}</span>;
@@ -233,6 +231,7 @@ function BookingForm() {
     setErrors(next);
     if (Object.keys(next).length) return;
     setPaying(true);
+    window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
     window.setTimeout(() => {
       setPaying(false);
       navigate({ to: "/thank-you" });
