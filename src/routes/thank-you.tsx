@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CalendarDays, Check, Clock3, Hash, IndianRupee, MapPin } from "lucide-react";
+import { CalendarDays, Check, Clock3, IndianRupee, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/thank-you")({
