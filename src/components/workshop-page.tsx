@@ -294,10 +294,18 @@ function BookingForm() {
           </div>
           <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
             <Button type="submit" disabled={paying} className="h-12 flex-1 bg-primary px-5 font-bold text-primary-foreground shadow-action hover:bg-primary/90">
-              {paying ? "Opening secure checkout…" : "Book Your Seat Now"} <ArrowRight />
+              {paying ? "Processing…" : "Book Your Seat Now"} <ArrowRight />
             </Button>
             <Price />
           </div>
+          {submitError && (
+            <p role="alert" className="text-xs font-bold text-destructive">{submitError}</p>
+          )}
+          {succeeded && !submitError && (
+            <div className="rounded-md border border-success/40 bg-success/10 p-3 text-xs font-bold text-success">
+              You're almost there! Your details have been received.
+            </div>
+          )}
         </form>
         <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-border pt-4 text-[10px] text-muted-foreground sm:text-xs">
           <span className="rounded-full bg-foreground px-3 py-1 font-bold text-background">Razorpay</span>
