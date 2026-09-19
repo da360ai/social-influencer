@@ -1,5 +1,6 @@
 "use client";
 
+import { useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
