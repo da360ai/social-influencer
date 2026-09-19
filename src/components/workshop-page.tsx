@@ -56,13 +56,13 @@ import testimonialThumb2 from "@/assets/testimonial-thumb-2.jpg";
 import testimonialThumb3 from "@/assets/testimonial-thumb-3.jpg";
 import testimonialThumb4 from "@/assets/testimonial-thumb-4.jpg";
 import testimonialThumb5 from "@/assets/testimonial-thumb-5.jpg";
-import tcsLogo from "@/assets/attendees/tcs.svg.asset.json";
-import wiproLogo from "@/assets/attendees/wipro.svg.asset.json";
-import cashfreeLogo from "@/assets/attendees/cashfree.svg.asset.json";
-import presidencyLogo from "@/assets/attendees/presidency.svg.asset.json";
-import mumbaiUniversityLogo from "@/assets/attendees/mumbai-university.png.asset.json";
-import bnmitLogo from "@/assets/attendees/bnmit.png.asset.json";
-import prarthanaLogo from "@/assets/attendees/prarthana.png.asset.json";
+import tcsLogoUrl from "@/assets/attendees/tcs.svg";
+import wiproLogoUrl from "@/assets/attendees/wipro.svg";
+import cashfreeLogoUrl from "@/assets/attendees/cashfree.svg";
+import presidencyLogoUrl from "@/assets/attendees/presidency.svg";
+import mumbaiUniversityLogoUrl from "@/assets/attendees/mumbai-university.png";
+import bnmitLogoUrl from "@/assets/attendees/bnmit.png";
+import prarthanaLogoUrl from "@/assets/attendees/prarthana.png";
 
 type FormValues = { name: string; email: string; phone: string };
 type FormErrors = Partial<Record<keyof FormValues, string>>;
@@ -100,13 +100,13 @@ const outcomes = [
 ];
 
 const attendeeOrganizations = [
-  { logo: tcsLogo.url, name: "Tata Consultancy Services", type: "Company" },
-  { logo: wiproLogo.url, name: "Wipro", type: "Company" },
-  { logo: cashfreeLogo.url, name: "Cashfree Payments", type: "Company" },
-  { logo: presidencyLogo.url, name: "Presidency University", type: "College" },
-  { logo: mumbaiUniversityLogo.url, name: "Mumbai University", type: "College" },
-  { logo: bnmitLogo.url, name: "BNM Institute of Technology", type: "College" },
-  { logo: prarthanaLogo.url, name: "Prarthana World School", type: "College" },
+  { logo: tcsLogoUrl, name: "Tata Consultancy Services", type: "Company" },
+  { logo: wiproLogoUrl, name: "Wipro", type: "Company" },
+  { logo: cashfreeLogoUrl, name: "Cashfree Payments", type: "Company" },
+  { logo: presidencyLogoUrl, name: "Presidency University", type: "College" },
+  { logo: mumbaiUniversityLogoUrl, name: "Mumbai University", type: "College" },
+  { logo: bnmitLogoUrl, name: "BNM Institute of Technology", type: "College" },
+  { logo: prarthanaLogoUrl, name: "Prarthana World School", type: "College" },
 ];
 
 const testimonials = [
