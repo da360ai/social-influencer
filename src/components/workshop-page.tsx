@@ -385,7 +385,9 @@ function PreviousAttendees() {
                           alt={groupIndex === 0 && repeatIndex === 0 ? `${name} logo` : ""}
                           title={name}
                           className="h-7 w-auto max-w-[130px] shrink-0 object-contain opacity-70 transition-opacity hover:opacity-100 sm:h-9 sm:max-w-[160px]"
-                          loading={groupIndex === 0 ? "eager" : "lazy"}
+                          loading="eager"
+                          decoding="sync"
+
                         />
                         )),
                     )}
