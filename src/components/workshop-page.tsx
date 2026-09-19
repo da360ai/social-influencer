@@ -510,14 +510,14 @@ export function WorkshopPage() {
         </div>
       </section>
 
-      <section id="journey" className="border-b border-border py-20 sm:py-24">
+      <section id="journey" className="border-b border-border py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeading eyebrow="The creator journey" title="Four moves. One earning engine." copy="The workshop connects every stage, so your content becomes more than a posting habit." />
-           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {journey.map(({ label, text, icon: Icon }, index) => (
-               <article key={label} className={`relative rounded-lg border border-border bg-card p-6 shadow-sm transition-transform hover:-translate-y-1 ${index % 2 ? "lg:mt-8" : ""}`}>
+               <article key={label} className={`relative rounded-lg border border-border bg-card px-6 py-5 shadow-sm transition-transform hover:-translate-y-1 ${index % 2 ? "lg:mt-6" : ""}`}>
                 <div className="flex items-center justify-between"><span className="text-xs font-extrabold text-primary">0{index + 1}</span><Icon className="size-6 text-highlight" /></div>
-                <h3 className="mt-10 font-display text-2xl font-extrabold uppercase">{label}</h3>
+                 <h3 className="mt-7 font-display text-2xl font-extrabold uppercase">{label}</h3>
                 <p className="mt-3 text-sm leading-6 text-muted-foreground">{text}</p>
               </article>
             ))}
