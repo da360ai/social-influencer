@@ -16,7 +16,6 @@ import {
   MapPin,
   MessageCircle,
   PlayCircle,
-  ShieldCheck,
   Sparkles,
   SquareParking,
   Star,
