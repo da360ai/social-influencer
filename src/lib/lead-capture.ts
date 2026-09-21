@@ -50,8 +50,7 @@ export type LeadPayload = {
   payment_status?: string;
 };
 
-/** POSTs the lead to the Apps Script web app as form parameters (doPost-friendly). */
-export async function submitLead(lead: LeadPayload): Promise<void> {
+function buildPayload(lead: LeadPayload): URLSearchParams {
   const utm = getStoredUtmParams();
   const data = new URLSearchParams();
   data.append("full_name", lead.full_name);
@@ -63,9 +62,49 @@ export async function submitLead(lead: LeadPayload): Promise<void> {
   data.append("lead_source", LEAD_SOURCE);
   data.append("razorpay_payment_id", lead.razorpay_payment_id ?? "");
   data.append("payment_status", lead.payment_status ?? "PENDING");
+  return data;
+}
 
-  const response = await fetch(APPS_SCRIPT_URL, { method: "POST", body: data });
-  if (!response.ok) {
+/**
+ * POSTs the lead to the Apps Script web app as form parameters (doPost-friendly).
+ * Apps Script answers with a cross-origin redirect that browsers often refuse to
+ * expose to fetch, so a readable response is treated as best-effort: when it is
+ * blocked we re-send the same body in no-cors mode (and as a beacon) so the row
+ * still reaches the sheet even if the visitor navigates straight to Razorpay.
+ */
+export async function submitLead(lead: LeadPayload): Promise<void> {
+  const data = buildPayload(lead);
+
+  try {
+    const response = await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      body: data,
+      redirect: "follow",
+      keepalive: true,
+    });
+    if (response.ok || response.type === "opaqueredirect") return;
     throw new Error(`Apps Script responded with ${response.status}`);
+  } catch (error) {
+    console.error("Lead submission (cors) failed, retrying opaque", error);
   }
+
+  // Fallback 1: opaque request — unreadable response, but it does reach the sheet.
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      body: data,
+      keepalive: true,
+    });
+    return;
+  } catch (error) {
+    console.error("Lead submission (no-cors) failed, retrying beacon", error);
+  }
+
+  // Fallback 2: beacon — survives page unload.
+  const sent =
+    typeof navigator !== "undefined" &&
+    typeof navigator.sendBeacon === "function" &&
+    navigator.sendBeacon(APPS_SCRIPT_URL, data);
+  if (!sent) throw new Error("Lead submission failed on every transport");
 }
