@@ -280,28 +280,34 @@ function BookingForm() {
     if (Object.keys(next).length) return;
 
     setPaying(true);
+    // Open the checkout tab while the click is still trusted, so popup blockers
+    // never swallow it, then send the lead with keepalive from this tab.
+    const checkoutTab = window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
+    setSucceeded(true);
+    try {
+      window.sessionStorage.setItem("workshop_payment", JSON.stringify({ id: "", amount: "₹79" }));
+    } catch {
+      // storage unavailable — the thank-you page falls back to the default amount
+    }
     try {
       await submitLead({
         full_name: values.name.trim(),
         email: values.email.trim(),
         whatsapp: `+91${values.phone}`,
       });
-      setSucceeded(true);
-      try {
-        window.sessionStorage.setItem("workshop_payment", JSON.stringify({ id: "", amount: "₹79" }));
-      } catch {
-        // storage unavailable — the thank-you page falls back to the default amount
-      }
-      window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
-      window.setTimeout(() => {
-        setPaying(false);
-        navigate({ to: "/thank-you" });
-      }, 900);
     } catch (error) {
       console.error("Lead submission failed", error);
-      setSubmitError("Something went wrong. Please try again.");
-      setPaying(false);
     }
+    if (!checkoutTab) {
+      // Popup blocked — send this tab to checkout instead of stranding the visitor.
+      setPaying(false);
+      window.location.href = RAZORPAY_URL;
+      return;
+    }
+    window.setTimeout(() => {
+      setPaying(false);
+      navigate({ to: "/thank-you" });
+    }, 900);
   }
 
   return (
