@@ -282,7 +282,7 @@ function BookingForm() {
     setPaying(true);
     // Open the checkout tab while the click is still trusted, so popup blockers
     // never swallow it, then send the lead with keepalive from this tab.
-    const checkoutTab = window.open(RAZORPAY_URL, "_blank", "noopener,noreferrer");
+    const checkoutTab = window.open(RAZORPAY_URL, "_blank");
     setSucceeded(true);
     try {
       window.sessionStorage.setItem("workshop_payment", JSON.stringify({ id: "", amount: "₹79" }));
