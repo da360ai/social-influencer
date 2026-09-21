@@ -225,6 +225,16 @@ function Brand() {
 
 const RAZORPAY_URL = "https://rzp.io/rzp/social-content-creator";
 
+/** Every CTA funnels through the booking form so the lead is captured before Razorpay. */
+function focusBookingForm() {
+  const form = document.getElementById("register");
+  form?.scrollIntoView({ behavior: "smooth", block: "center" });
+  window.setTimeout(() => {
+    const name = document.getElementById("name") as HTMLInputElement | null;
+    name?.focus({ preventScroll: true });
+  }, 450);
+}
+
 function MetaPill({ children }: { children: React.ReactNode }) {
   return <span className="inline-flex min-h-14 items-center gap-2 border-r border-border px-4 py-2 text-[10px] font-extrabold uppercase text-foreground first:pl-0 last:border-r-0 sm:text-[11px]">{children}</span>;
 }
