@@ -65,43 +65,23 @@ function buildPayload(lead: LeadPayload): URLSearchParams {
   return data;
 }
 
-/**
- * POSTs the lead to the Apps Script web app as form parameters (doPost-friendly).
- * Apps Script answers with a cross-origin redirect that browsers often refuse to
- * expose to fetch, so a readable response is treated as best-effort: when it is
- * blocked we re-send the same body in no-cors mode (and as a beacon) so the row
- * still reaches the sheet even if the visitor navigates straight to Razorpay.
- */
+/** Send one form-encoded request to Apps Script without a CORS redirect retry. */
 export async function submitLead(lead: LeadPayload): Promise<void> {
   const data = buildPayload(lead);
 
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
       method: "POST",
-      body: data,
-      redirect: "follow",
-      keepalive: true,
-    });
-    if (response.ok || response.type === "opaqueredirect") return;
-    throw new Error(`Apps Script responded with ${response.status}`);
-  } catch (error) {
-    console.error("Lead submission (cors) failed, retrying opaque", error);
-  }
-
-  // Fallback 1: opaque request — unreadable response, but it does reach the sheet.
-  try {
-    await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
       mode: "no-cors",
       body: data,
       keepalive: true,
     });
-    return;
+    if (response.type === "opaque" || response.ok) return;
+    throw new Error(`Apps Script responded with ${response.status}`);
   } catch (error) {
-    console.error("Lead submission (no-cors) failed, retrying beacon", error);
+    console.error("Lead submission failed, retrying beacon", error);
   }
 
-  // Fallback 2: beacon — survives page unload.
   const sent =
     typeof navigator !== "undefined" &&
     typeof navigator.sendBeacon === "function" &&

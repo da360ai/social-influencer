@@ -10,13 +10,13 @@ export const Route = createFileRoute("/thank-you")({
       {
         name: "description",
         content:
-          "Your seat for the Earn From Your Influence workshop on 26th September, 11 AM onwards at Digital Academy 360, JP Nagar, Bengaluru is confirmed.",
+          "Your seat for the Earn From Your Influence workshop on 17th October, 11 AM onwards at Digital Academy 360, JP Nagar, Bengaluru is confirmed.",
       },
       { property: "og:title", content: "Registration Confirmed — Digital Academy 360" },
       {
         property: "og:description",
         content:
-          "Your seat for the 26th September creator income workshop is confirmed. See you at Digital Academy 360, JP Nagar, Bengaluru.",
+          "Your seat for the 17th October creator income workshop is confirmed. See you at Digital Academy 360, JP Nagar, Bengaluru.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -37,16 +37,34 @@ function ThankYouPage() {
     const params = new URLSearchParams(window.location.search);
     const urlId = params.get("razorpay_payment_id") ?? params.get("payment_id") ?? "";
     const urlAmount = params.get("amount") ?? "";
-    let stored: Partial<PaymentInfo> = {};
+    const urlStatus = params.get("payment_status") ?? "";
+    const hasConfirmedPayment = Boolean(
+      urlId ||
+        urlStatus === "paid" ||
+        params.get("success") === "true" ||
+        params.get("success") === "1",
+    );
+
+    let stored: Partial<PaymentInfo> & { status?: string } = {};
     try {
-      stored = JSON.parse(window.sessionStorage.getItem("workshop_payment") ?? "{}") as Partial<PaymentInfo>;
+      stored = JSON.parse(window.sessionStorage.getItem("workshop_payment") ?? "{}") as Partial<PaymentInfo> & {
+        status?: string;
+      };
     } catch {
       stored = {};
     }
-    setPayment({
-      id: urlId || stored.id || "",
-      amount: urlAmount || stored.amount || "₹79",
-    });
+
+    const paymentStatus = stored.status ?? urlStatus ?? "";
+    const confirmed = hasConfirmedPayment || paymentStatus === "paid" || Boolean(stored.id);
+
+    setPayment(
+      confirmed
+        ? {
+            id: urlId || stored.id || "",
+            amount: urlAmount || stored.amount || "₹79",
+          }
+        : null,
+    );
   }, []);
 
   return (
@@ -55,15 +73,25 @@ function ThankYouPage() {
         <div className="grid size-16 place-items-center rounded-full bg-primary shadow-action">
           <Check className="size-8 text-primary-foreground" strokeWidth={3} />
         </div>
-        <p className="mt-6 text-xs font-extrabold uppercase tracking-widest text-primary">Payment received</p>
+        <p className="mt-6 text-xs font-extrabold uppercase tracking-widest text-primary">
+          {payment ? "Payment received" : "Registration received"}
+        </p>
         <h1 className="mt-3 font-display text-3xl font-extrabold italic leading-tight text-foreground sm:text-4xl">
-          Your registration has been confirmed.
+          {payment ? "Your registration has been confirmed." : "Your registration is in progress."}
         </h1>
         <p className="mt-5 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
-          This is a reminder that you are scheduled to attend the Earn From Your Influence workshop on{" "}
-          <span className="font-bold uppercase text-foreground">26th September</span> at{" "}
+          {payment
+            ? "This is a reminder that you are scheduled to attend the Earn From Your Influence workshop on "
+            : "Your details have been received. Please complete the payment in the Razorpay window to confirm your seat for the "}
+          <span className="font-bold uppercase text-foreground">17th October</span> at{" "}
           <span className="font-bold text-foreground">11:00 AM</span> at Digital Academy 360, JP Nagar.
         </p>
+
+        {!payment && (
+          <div className="mt-6 rounded-md border border-amber-500/40 bg-amber-500/10 p-3 text-sm font-medium text-amber-700 dark:text-amber-300">
+            Payment is still pending. Finish the checkout in the Razorpay tab to confirm your seat.
+          </div>
+        )}
 
         <div className="mt-8 rounded-xl border border-border bg-secondary p-5 sm:p-6">
           <dl className="divide-y divide-border">
@@ -71,7 +99,7 @@ function ThankYouPage() {
               <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <CalendarDays className="size-4" /> Date
               </dt>
-              <dd className="text-right text-sm font-bold text-foreground sm:text-base">Saturday, 26TH SEPTEMBER 2026</dd>
+              <dd className="text-right text-sm font-bold text-foreground sm:text-base">Saturday, 17th October 2026</dd>
             </div>
             <div className="flex items-center justify-between gap-4 py-3">
               <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
