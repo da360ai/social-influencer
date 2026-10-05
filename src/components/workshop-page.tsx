@@ -222,7 +222,7 @@ function Brand() {
   );
 }
 
-const RAZORPAY_URL = "https://rzp.io/rzp/social-content-creator";
+const RAZORPAY_URL = "https://rzp.io/rzp/social-content-creator-oct26";
 
 /** Every CTA funnels through the booking form so the lead is captured before Razorpay. */
 function focusBookingForm() {
@@ -285,19 +285,11 @@ function BookingForm() {
     if (Object.keys(next).length) return;
 
     setPaying(true);
-    try {
-      await submitLead({
-        full_name: values.name.trim(),
-        email: values.email.trim(),
-        whatsapp: `+91${values.phone}`,
-      });
-    } catch (error) {
-      console.error("Lead submission failed", error);
-      setSubmitError("We couldn't send your details. Please check your connection and try again.");
-      setPaying(false);
-      return;
-    }
-
+    void submitLead({
+      full_name: values.name.trim(),
+      email: values.email.trim(),
+      whatsapp: `+91${values.phone}`,
+    }).catch((error) => console.error("Lead submission failed", error));
     setSucceeded(true);
     try {
       window.sessionStorage.setItem("workshop_payment", JSON.stringify({ id: "", amount: "₹79", status: "pending" }));

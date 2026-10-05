@@ -61,7 +61,7 @@ function buildPayload(lead: LeadPayload): URLSearchParams {
   data.append("referrer", typeof document === "undefined" ? "" : document.referrer);
   data.append("lead_source", LEAD_SOURCE);
   data.append("razorpay_payment_id", lead.razorpay_payment_id ?? "");
-  data.append("payment_status", lead.payment_status ?? "PENDING");
+  data.append("payment_status", lead.payment_status ?? "UNPAID");
   return data;
 }
 
