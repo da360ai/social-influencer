@@ -86,6 +86,7 @@ const modules = [
   ["Your First ₹10K Creator Roadmap", "Leave with a focused 30-day action plan built around your strengths."],
 ];
 
+
 const curriculumImages = [
   curriculumPosition,
   curriculumContent,
@@ -94,6 +95,8 @@ const curriculumImages = [
   curriculumBrand,
   curriculumRoadmap,
 ];
+
+
 
 const outcomes = [
   { label: "Content Creation ", text: "Create scroll-stopping and  trust-building content", icon: PlayCircle },
