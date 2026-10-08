@@ -94,6 +94,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "yugp7p3sjd");`,
       },
+      {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-8ZRPDM2ELK",
+        async: true,
+      },
+      {
+        children: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-8ZRPDM2ELK');`,
+      },
     ],
     links: [
       {
