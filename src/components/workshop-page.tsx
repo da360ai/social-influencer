@@ -174,7 +174,7 @@ const takeaways = [
 
 
 const faqs = [
-  ["When and where is the workshop?", "The workshop runs for three hours, from 11:00 AM onwards on Saturday, 17th October 2026, at the Digital Academy 360 campus in JP Nagar, Bangalore. It is a fully in-person session — doors open 15 minutes early so you can settle in, meet fellow attendees, and grab a seat up front."],
+  ["When and where is the workshop?", "The workshop runs for three hours, from 11:00 AM onwards on Saturday, 31st October 2026, at the Digital Academy 360 campus in JP Nagar, Bangalore. It is a fully in-person session — doors open 15 minutes early so you can settle in, meet fellow attendees, and grab a seat up front."],
   ["What exactly will I learn in 3 hours?", "You'll work through six hands-on modules: finding a creator position brands instantly understand, building content people want to see, growing attention and audience trust, turning attention into income, landing brand collaborations, and a simple pricing framework — finishing with a creator earning career roadmap you can follow after the workshop. Every module includes a live exercise, not just theory."],
   ["Who is this workshop for?", "It's built for anyone who wants to earn from content: students, working professionals, freelancers, small business owners, and aspiring full-time creators. If you can post on Instagram or YouTube, you have everything you need to start — no marketing background is required."],
   ["Do I need an existing audience or followers?", "No. Most attendees start from zero. The frameworks are designed to work whether you are beginning from scratch, stuck at a few hundred followers, or already creating consistently and want to monetise properly. Positioning and content strategy come before follower counts in this system."],
@@ -465,7 +465,7 @@ export function WorkshopPage() {
             </p>
               <div className="mt-7 grid grid-cols-2 border-y border-border sm:grid-cols-4">
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 3 hours</MetaPill>
-              <MetaPill><CalendarDays className="size-3.5 text-highlight" /> 17th October&nbsp;</MetaPill>
+              <MetaPill><CalendarDays className="size-3.5 text-highlight" /> 31st October&nbsp;</MetaPill>
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 11AM&nbsp; ONWARDS</MetaPill>
               <MetaPill><MapPin className="size-3.5 text-highlight" /> Offline workshop</MetaPill>
             </div>
@@ -805,7 +805,7 @@ export function WorkshopPage() {
           <Brand />
           <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
           <div className="ml-auto hidden items-center gap-6 md:flex">
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">17th October</span><span className="block text-muted-foreground">11 AM Onwards</span></span></span>
+            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">31st October</span><span className="block text-muted-foreground">11 AM Onwards</span></span></span>
             <span className="flex items-center gap-2 text-[11px] leading-tight"><MapPin className="size-5 text-primary" /><span><span className="block font-bold text-foreground">JP Nagar,</span><span className="block text-muted-foreground">Bangalore</span></span></span>
             <span className="flex items-center gap-2 text-[11px] leading-tight"><Users className="size-5 text-primary" /><span><span className="block font-bold text-foreground">Limited Seats</span><span className="block text-muted-foreground">Only 5 spots</span></span></span>
           </div>

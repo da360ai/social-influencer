@@ -10,13 +10,13 @@ export const Route = createFileRoute("/thank-you")({
       {
         name: "description",
         content:
-          "Your seat for the Earn From Your Influence workshop on 17th October, 11 AM onwards at Digital Academy 360, JP Nagar, Bengaluru is confirmed.",
+          "Your seat for the Earn From Your Influence workshop on 31st October, 11 AM onwards at Digital Academy 360, JP Nagar, Bengaluru is confirmed.",
       },
       { property: "og:title", content: "Registration Confirmed — Digital Academy 360" },
       {
         property: "og:description",
         content:
-          "Your seat for the 17th October creator income workshop is confirmed. See you at Digital Academy 360, JP Nagar, Bengaluru.",
+          "Your seat for the 31st October creator income workshop is confirmed. See you at Digital Academy 360, JP Nagar, Bengaluru.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -83,7 +83,7 @@ function ThankYouPage() {
           {payment
             ? "This is a reminder that you are scheduled to attend the Earn From Your Influence workshop on "
             : "Your details have been received. Please complete the payment in the Razorpay window to confirm your seat for the "}
-          <span className="font-bold uppercase text-foreground">17th October</span> at{" "}
+          <span className="font-bold uppercase text-foreground">31st October</span> at{" "}
           <span className="font-bold text-foreground">11:00 AM</span> at Digital Academy 360, JP Nagar.
         </p>
 
@@ -99,7 +99,7 @@ function ThankYouPage() {
               <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <CalendarDays className="size-4" /> Date
               </dt>
-              <dd className="text-right text-sm font-bold text-foreground sm:text-base">Saturday, 17th October 2026</dd>
+              <dd className="text-right text-sm font-bold text-foreground sm:text-base">Saturday, 31st October 2026</dd>
             </div>
             <div className="flex items-center justify-between gap-4 py-3">
               <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
