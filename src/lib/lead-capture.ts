@@ -27,7 +27,13 @@ export function captureUtmParams(): void {
 }
 
 export function getStoredUtmParams(): UtmValues {
-  const result = { utm_source: "", utm_medium: "", utm_campaign: "", utm_term: "", utm_content: "" } as UtmValues;
+  const result = {
+    utm_source: "",
+    utm_medium: "",
+    utm_campaign: "",
+    utm_term: "",
+    utm_content: "",
+  } as UtmValues;
   if (typeof window === "undefined") return result;
   try {
     const params = new URLSearchParams(window.location.search);
@@ -47,7 +53,6 @@ export type LeadPayload = {
   email: string;
   whatsapp: string;
   razorpay_payment_id?: string;
-  payment_status?: string;
 };
 
 function buildPayload(lead: LeadPayload): URLSearchParams {
@@ -61,8 +66,7 @@ function buildPayload(lead: LeadPayload): URLSearchParams {
   data.append("referrer", typeof document === "undefined" ? "" : document.referrer);
   data.append("lead_source", LEAD_SOURCE);
   data.append("razorpay_payment_id", lead.razorpay_payment_id ?? "");
-  data.append("payment_status", "");
-  // data.append("payment_status", lead.payment_status ?? "UNPAID");
+  data.set("payment_status", "");
   return data;
 }
 
