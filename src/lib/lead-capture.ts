@@ -58,8 +58,12 @@ export type LeadPayload = {
 function buildPayload(lead: LeadPayload): URLSearchParams {
   const utm = getStoredUtmParams();
   const data = new URLSearchParams();
+  // The deployed Apps Script reads `name` and `phone`. Keep the newer
+  // semantic names too so both script versions receive the same lead data.
+  data.append("name", lead.full_name);
   data.append("full_name", lead.full_name);
   data.append("email", lead.email);
+  data.append("phone", lead.whatsapp);
   data.append("whatsapp", lead.whatsapp);
   for (const key of UTM_KEYS) data.append(key, utm[key]);
   data.append("landing_page", typeof window === "undefined" ? "" : window.location.href);
