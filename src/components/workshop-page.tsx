@@ -29,7 +29,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import academyLogoUrl from "@/assets/digital-academy-360-logo.png";
-import mentorPortraitUrl from "@/assets/mentor-portrait.jpg";
+import mentorPortraitUrl from "@/assets/vignesh-webinar.png";
 import creatorWorkshopHero from "@/assets/creator-workshop-hero-wide.jpg";
 import curriculumPosition from "@/assets/curriculum-position.jpg";
 import curriculumContent from "@/assets/curriculum-content.jpg";
@@ -174,7 +174,7 @@ const takeaways = [
 
 
 const faqs = [
-  ["When and where is the workshop?", "The workshop runs for three hours, from 11:00 AM onwards on Saturday, 31st October 2026, at the Digital Academy 360 campus in JP Nagar, Bangalore. It is a fully in-person session — doors open 15 minutes early so you can settle in, meet fellow attendees, and grab a seat up front."],
+  ["When and where is the workshop?", "The workshop runs for three hours, from 11:00 AM onwards on Saturday, 21st November 2026, at the Digital Academy 360 campus in JP Nagar, Bangalore. It is a fully in-person session — doors open 15 minutes early so you can settle in, meet fellow attendees, and grab a seat up front."],
   ["What exactly will I learn in 3 hours?", "You'll work through six hands-on modules: finding a creator position brands instantly understand, building content people want to see, growing attention and audience trust, turning attention into income, landing brand collaborations, and a simple pricing framework — finishing with a creator earning career roadmap you can follow after the workshop. Every module includes a live exercise, not just theory."],
   ["Who is this workshop for?", "It's built for anyone who wants to earn from content: students, working professionals, freelancers, small business owners, and aspiring full-time creators. If you can post on Instagram or YouTube, you have everything you need to start — no marketing background is required."],
   ["Do I need an existing audience or followers?", "No. Most attendees start from zero. The frameworks are designed to work whether you are beginning from scratch, stuck at a few hundred followers, or already creating consistently and want to monetise properly. Positioning and content strategy come before follower counts in this system."],
@@ -186,7 +186,7 @@ const faqs = [
   ["Do I get a certificate or any follow-up support?", "Yes — every attendee receives a completion certificate from Digital Academy 360, and you'll be added to the attendee community where past participants share wins, brand-deal leads, and feedback. The mentor also stays reachable for questions after the session."],
   ["How many seats are available, and why so few?", "We keep the room small — only 15 seats — so every attendee gets individual attention, their positioning reviewed, and their questions answered live. Seats fill on a first-paid basis, so if the page shows seats left, that's the real remaining count."],
   ["What is the refund policy?", "Because seats are limited and materials are prepared in advance, the ₹79 fee is non-refundable once paid. However, if you cannot attend, your seat can be transferred to a friend or moved to a future batch — just message us on WhatsApp with your registered name."],
-  ["Who is the mentor, and why learn from him?", "The workshop is led by Monisha Jain, a digital marketing trainer with 6+ years of experience across Google Ads, Meta Ads, SEO, social media, performance marketing, and creator and influencer marketing. He has trained hundreds of students with a practical, industry-oriented approach — you'll work on real briefs, not hypothetical examples."],
+  ["Who is the mentor, and why learn from him?", "The workshop is led by Vignesh, a digital marketing trainer with 6+ years of experience across Google Ads, Meta Ads, SEO, social media, performance marketing, and creator and influencer marketing. He has trained hundreds of students with a practical, industry-oriented approach — you'll work on real briefs, not hypothetical examples."],
 ];
 
 function getNextSaturday() {
@@ -225,7 +225,7 @@ function Brand() {
   );
 }
 
-const RAZORPAY_URL = "https://rzp.io/rzp/social-content-creator-oct26";
+const RAZORPAY_URL = "https://rzp.io/rzp/89ZqBMXh";
 
 /** Every CTA funnels through the booking form so the lead is captured before Razorpay. */
 function focusBookingForm() {
@@ -465,7 +465,7 @@ export function WorkshopPage() {
             </p>
               <div className="mt-7 grid grid-cols-2 border-y border-border sm:grid-cols-4">
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 3 hours</MetaPill>
-              <MetaPill><CalendarDays className="size-3.5 text-highlight" /> 31st October&nbsp;</MetaPill>
+              <MetaPill><CalendarDays className="size-3.5 text-highlight" /> 21st November&nbsp;</MetaPill>
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 11AM&nbsp; ONWARDS</MetaPill>
               <MetaPill><MapPin className="size-3.5 text-highlight" /> Offline workshop</MetaPill>
             </div>
@@ -505,7 +505,7 @@ export function WorkshopPage() {
           </div>
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[20px] border border-border bg-foreground shadow-glow">
             <video
-              src="/media/monisha-web.mp4"
+              src="/media/vignesh.mp4"
               controls
               playsInline
               preload="metadata"
@@ -692,28 +692,32 @@ export function WorkshopPage() {
              <div className="relative overflow-hidden rounded-xl border border-border bg-secondary p-3 shadow-glow lg:-rotate-2">
               <img
                 src={mentorPortrait.url}
-                alt="Monisha Jain, Digital Marketing Trainer and workshop mentor"
+                alt="Vignesh, Digital Marketing Trainer and workshop mentor"
                 className="aspect-[3/4] h-full w-full rounded-lg object-cover object-top"
                 loading="lazy"
               />
             </div>
             <div>
               <p className="text-xs font-extrabold uppercase text-primary">Your mentor</p>
-              <h3 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">MONISHA JAIN</h3>
+              <h3 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">VIGNESH</h3>
               <span className="mt-3 inline-flex rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary">Digital Marketing Trainer</span>
               <div className="mt-7 space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
                 <p>
-                 Digital marketing strategist and trainer with hands-on experience across Influencer Marketing, Social Media Marketing, 
-                 Personal Branding, and Content Strategy.
-                 Having worked with brands across <strong className="text-foreground">10+ industries and trained 1,000+ students, </strong> 
-                  I bring a practical, industry-focused approach to digital marketing. 
-                </p>
+                I have around <strong className="text-foreground"> 6+ years </strong> of professional experience in digital marketing and training. During my career, 
+                I’ve worked across different industries, including e-commerce, healthcare, sporting goods, and legal.
+                My core expertise includes Google Ads, Meta Ads, SEO, Social Media Marketing, Influencer Marketing, Performance Marketing, AI tools, and Digital Strategy.
+               </p>
                 <p>
-                  My focus is on helping creators and aspiring marketers understand what happens beyond followers and likes how to
-                   build an audience, create the right content, position yourself, and turn your influence into an income opportunity.
-                   I believe the best learning happens when you learn, experiment, make mistakes, and actually do the work.
-                   <strong className="text-foreground">DIGITAL MARKETING STRATEGIST </strong>, <strong className="text-foreground">TRAINER </strong>, 
-                   <strong className="text-foreground">INFLUENCER MARKETING</strong>,
+                 I’m particularly interested in creator and influencer marketing from identifying the right creators and
+                  planning campaigns to understanding how to measure the actual impact and outcomes of those campaigns.
+                  
+                  As a trainer, I focus more on practical and industry-oriented learning rather than just theory.
+                   I like helping students understand how digital marketing actually works in the real world through projects,
+                    communities, webinars, and opportunities where they can gain hands-on experience and become job-ready.
+                    
+                  A big part of what I want to do is create meaningful career opportunities for aspiring marketers and help 
+                    them build the skills, confidence, and practical experience they need to grow in the industry.
+                   
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap items-end justify-between gap-2">
@@ -722,10 +726,10 @@ export function WorkshopPage() {
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
-                  ["6+", "Years Experience"],
-                  ["10+", "Industries"],
-                  ["8+", "Core Skills"],
-                  ["1,000+", "Students Trained"],
+                  ["5cr+", "Budget Spent"],
+                  ["80+", "Campaigns"],
+                  ["15,000+", "Leads Generated"],
+                  ["25+", "platforms Leveraged"],
                 ].map(([value, label]) => (
                   <div key={label} className="rounded-md border border-border bg-card px-3 py-5 text-center">
                     <strong className="font-display text-xl font-extrabold text-primary sm:text-2xl">{value}</strong>
@@ -805,7 +809,7 @@ export function WorkshopPage() {
           <Brand />
           <p className="hidden border-l border-border pl-4 text-xs font-bold text-foreground lg:block">Turn Your Influence Into Income.</p>
           <div className="ml-auto hidden items-center gap-6 md:flex">
-            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">31st October</span><span className="block text-muted-foreground">11 AM Onwards</span></span></span>
+            <span className="flex items-center gap-2 text-[11px] leading-tight"><CalendarDays className="size-5 text-primary" /><span><span className="block font-bold text-foreground">21st November</span><span className="block text-muted-foreground">11 AM Onwards</span></span></span>
             <span className="flex items-center gap-2 text-[11px] leading-tight"><MapPin className="size-5 text-primary" /><span><span className="block font-bold text-foreground">JP Nagar,</span><span className="block text-muted-foreground">Bangalore</span></span></span>
             <span className="flex items-center gap-2 text-[11px] leading-tight"><Users className="size-5 text-primary" /><span><span className="block font-bold text-foreground">Limited Seats</span><span className="block text-muted-foreground">Only 5 spots</span></span></span>
           </div>
