@@ -726,10 +726,10 @@ export function WorkshopPage() {
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {[
-                  ["5cr+", "Budget Spent"],
-                  ["80+", "Campaigns"],
-                  ["15,000+", "Leads Generated"],
-                  ["25+", "platforms Leveraged"],
+                  ["6+", "Years Experience"],
+                  ["10+", "Industries"],
+                  ["8+", "Core Skills"],
+                  ["1,000+", "Students Trained"],
                 ].map(([value, label]) => (
                   <div key={label} className="rounded-md border border-border bg-card px-3 py-5 text-center">
                     <strong className="font-display text-xl font-extrabold text-primary sm:text-2xl">{value}</strong>
