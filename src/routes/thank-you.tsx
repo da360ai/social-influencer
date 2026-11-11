@@ -10,7 +10,7 @@ export const Route = createFileRoute("/thank-you")({
       {
         name: "description",
         content:
-          "Your seat for the Earn From Your Influence workshop on 21st November, 11 AM onwards at Digital Academy 360, JP Nagar, Bengaluru is confirmed.",
+          "Your seat for the Earn From Your Influence workshop on 21st November, 10 AM onwards at Digital Academy 360, JP Nagar, Bengaluru is confirmed.",
       },
       { property: "og:title", content: "Registration Confirmed — Digital Academy 360" },
       {
