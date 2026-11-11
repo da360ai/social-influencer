@@ -84,7 +84,7 @@ function ThankYouPage() {
             ? "This is a reminder that you are scheduled to attend the Earn From Your Influence workshop on "
             : "Your details have been received. Please complete the payment in the Razorpay window to confirm your seat for the "}
           <span className="font-bold uppercase text-foreground">21st November</span> at{" "}
-          <span className="font-bold text-foreground">11:00 AM</span> at Digital Academy 360, JP Nagar.
+          <span className="font-bold text-foreground">10:00 AM</span> at Digital Academy 360, JP Nagar.
         </p>
 
         {!payment && (
@@ -105,7 +105,7 @@ function ThankYouPage() {
               <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
                 <Clock3 className="size-4" /> Time
               </dt>
-              <dd className="text-right text-sm font-bold text-foreground sm:text-base">11:00 AM Onwards</dd>
+              <dd className="text-right text-sm font-bold text-foreground sm:text-base">10:00 AM Onwards</dd>
             </div>
             <div className="flex items-center justify-between gap-4 py-3">
               <dt className="inline-flex items-center gap-2 text-sm text-muted-foreground">
