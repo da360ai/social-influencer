@@ -796,7 +796,7 @@ export function WorkshopPage() {
       <footer ref={footerRef} className="border-t border-border bg-card py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-4 text-center sm:flex-row sm:px-6 sm:text-left">
           <Brand />
-          <p className="text-xs text-muted-foreground">© 2026 Sisinty Pvt. Ltd. All rights reserved</p>
+          <p className="text-xs text-muted-foreground">© 2026 Digital Academy 360 PVT LTD . All rights reserved</p>
           <div className="flex items-center gap-6 text-xs text-muted-foreground">
             <a href="https://www.digitalacademy360.com/da360-privacy-policy" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">Privacy Policy</a>
             <a href="https://www.digitalacademy360.com/terms-conditions" target="_blank" rel="noreferrer" className="transition-colors hover:text-foreground">Terms and Conditions</a>
