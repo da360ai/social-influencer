@@ -466,7 +466,7 @@ export function WorkshopPage() {
               <div className="mt-7 grid grid-cols-2 border-y border-border sm:grid-cols-4">
               <MetaPill><Clock3 className="size-3.5 text-highlight" /> 3 hours</MetaPill>
               <MetaPill><CalendarDays className="size-3.5 text-highlight" /> 21st November&nbsp;</MetaPill>
-              <MetaPill><Clock3 className="size-3.5 text-highlight" /> 11AM&nbsp; ONWARDS</MetaPill>
+              <MetaPill><Clock3 className="size-3.5 text-highlight" /> 10AM&nbsp; ONWARDS</MetaPill>
               <MetaPill><MapPin className="size-3.5 text-highlight" /> Offline workshop</MetaPill>
             </div>
              <div className="mt-6 flex flex-wrap items-center gap-5">
