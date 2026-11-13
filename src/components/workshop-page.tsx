@@ -1,6 +1,5 @@
 "use client";
-
-import { captureUtmParams, submitLead } from "@/lib/lead-capture";
+import { captureUtmParams, createLeadSubmissionId, submitLead } from "@/lib/lead-capture";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   ArrowDown,
@@ -256,10 +255,13 @@ function BookingForm() {
   const [paying, setPaying] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [succeeded, setSucceeded] = useState(false);
+  const submissionStarted = useRef(false);
+  const submissionId = useRef<string | null>(null);
 
   useEffect(() => {
     captureUtmParams();
     const resetCheckoutState = () => {
+      submissionStarted.current = false;
       setPaying(false);
       setSucceeded(false);
     };
@@ -272,13 +274,14 @@ function BookingForm() {
   const formattedDate = workshopDate.toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 
   function update(field: keyof FormValues, value: string) {
+    submissionId.current = null;
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
   }
 
   async function submit(event: FormEvent) {
     event.preventDefault();
-    if (paying) return;
+    if (paying || submissionStarted.current) return;
     const next: FormErrors = {};
     if (values.name.trim().length < 2) next.name = "Enter your full name";
     if (!/^\S+@\S+\.\S+$/.test(values.email)) next.email = "Enter a valid email address";
@@ -287,12 +290,25 @@ function BookingForm() {
     setSubmitError(null);
     if (Object.keys(next).length) return;
 
+    submissionStarted.current = true;
     setPaying(true);
-    void submitLead({
-      full_name: values.name.trim(),
-      email: values.email.trim(),
-      whatsapp: `+91${values.phone}`,
-    }).catch((error) => console.error("Lead submission failed", error));
+    const currentSubmissionId = submissionId.current ?? createLeadSubmissionId();
+    submissionId.current = currentSubmissionId;
+    try {
+      await submitLead({
+        full_name: values.name.trim(),
+        email: values.email.trim(),
+        whatsapp: `+91${values.phone}`,
+      }, currentSubmissionId);
+    } catch (error) {
+      console.error("Lead submission failed", error);
+      setSubmitError("We couldn't save your details. Please try again; your information will stay in this form.");
+      submissionStarted.current = false;
+      setPaying(false);
+      return;
+    }
+
+    submissionId.current = null;
     setSucceeded(true);
     try {
       window.sessionStorage.setItem("workshop_payment", JSON.stringify({ id: "", amount: "₹79", status: "pending" }));
