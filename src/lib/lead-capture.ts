@@ -55,11 +55,18 @@ export type LeadPayload = {
   razorpay_payment_id?: string;
 };
 
-function buildPayload(lead: LeadPayload): URLSearchParams {
+export function createLeadSubmissionId(): string {
+  return typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+    ? crypto.randomUUID()
+    : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+
+function buildPayload(lead: LeadPayload, submissionId: string): URLSearchParams {
   const utm = getStoredUtmParams();
   const data = new URLSearchParams();
   // The deployed Apps Script reads `name` and `phone`. Keep the newer
   // semantic names too so both script versions receive the same lead data.
+  data.append("submission_id", submissionId);
   data.append("name", lead.full_name);
   data.append("full_name", lead.full_name);
   data.append("email", lead.email);
@@ -67,7 +74,9 @@ function buildPayload(lead: LeadPayload): URLSearchParams {
   data.append("whatsapp", lead.whatsapp);
   for (const key of UTM_KEYS) data.append(key, utm[key]);
   data.append("landing_page", typeof window === "undefined" ? "" : window.location.href);
-  data.append("referrer", typeof document === "undefined" ? "" : document.referrer);
+  const referrer = typeof document === "undefined" ? "" : document.referrer;
+  data.append("landing_page_referrer", referrer);
+  data.append("referrer", referrer);
   data.append("lead_source", LEAD_SOURCE);
   data.append("razorpay_payment_id", lead.razorpay_payment_id ?? "");
   data.set("payment_status", "");
@@ -75,8 +84,8 @@ function buildPayload(lead: LeadPayload): URLSearchParams {
 }
 
 /** Send one form-encoded request to Apps Script without a CORS redirect retry. */
-export async function submitLead(lead: LeadPayload): Promise<void> {
-  const data = buildPayload(lead);
+export async function submitLead(lead: LeadPayload, submissionId: string): Promise<void> {
+  const data = buildPayload(lead, submissionId);
 
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
