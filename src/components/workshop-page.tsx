@@ -28,7 +28,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import academyLogoUrl from "@/assets/digital-academy-360-logo.png";
-import mentorPortraitUrl from "@/assets/vignesh-webinar.png";
+import mentorPortraitUrl from "@/assets/mentor-portrait.jpg";
 import creatorWorkshopHero from "@/assets/creator-workshop-hero-wide.jpg";
 import curriculumPosition from "@/assets/curriculum-position.jpg";
 import curriculumContent from "@/assets/curriculum-content.jpg";
@@ -521,7 +521,7 @@ export function WorkshopPage() {
           </div>
           <div className="mx-auto max-w-5xl overflow-hidden rounded-[20px] border border-border bg-foreground shadow-glow">
             <video
-              src="/media/vignesh.mp4"
+              src="/media/monisha-web.mp4"
               controls
               playsInline
               preload="metadata"
@@ -715,25 +715,20 @@ export function WorkshopPage() {
             </div>
             <div>
               <p className="text-xs font-extrabold uppercase text-primary">Your mentor</p>
-              <h3 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">VIGNESH</h3>
+              <h3 className="mt-3 font-display text-3xl font-extrabold text-foreground sm:text-4xl">MONISHA JAIN</h3>
               <span className="mt-3 inline-flex rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary">Digital Marketing Trainer</span>
               <div className="mt-7 space-y-5 text-sm leading-7 text-muted-foreground sm:text-base">
                 <p>
-                I have around <strong className="text-foreground"> 6+ years </strong> of professional experience in digital marketing and training. During my career, 
-                I’ve worked across different industries, including e-commerce, healthcare, sporting goods, and legal.
-                My core expertise includes Google Ads, Meta Ads, SEO, Social Media Marketing, Influencer Marketing, Performance Marketing, AI tools, and Digital Strategy.
-               </p>
+                Digital marketing strategist and trainer with hands-on experience across Influencer Marketing, 
+                Social Media Marketing, Personal Branding, and Content Strategy. Having worked with brands 
+                across <strong className="text-foreground"> 10+  </strong> industries and trained 1,000+ students, I bring a practical, industry-focused approach to 
+                digital marketing.  </p>
                 <p>
-                 I’m particularly interested in creator and influencer marketing from identifying the right creators and
-                  planning campaigns to understanding how to measure the actual impact and outcomes of those campaigns.
-                  
-                  As a trainer, I focus more on practical and industry-oriented learning rather than just theory.
-                   I like helping students understand how digital marketing actually works in the real world through projects,
-                    communities, webinars, and opportunities where they can gain hands-on experience and become job-ready.
-                    
-                  A big part of what I want to do is create meaningful career opportunities for aspiring marketers and help 
-                    them build the skills, confidence, and practical experience they need to grow in the industry.
-                   
+                 My focus is on helping creators and aspiring marketers understand what happens beyond followers
+                  and likes how to build an audience, create the right content, position yourself, and turn your 
+                  influence into an income opportunity. I believe the best learning happens when you learn, experiment,
+                   make mistakes, and actually do the work.DIGITAL
+                  <strong className="text-foreground"> MARKETING STRATEGIST TRAINER INFLUENCER MARKETING, </strong>
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap items-end justify-between gap-2">
